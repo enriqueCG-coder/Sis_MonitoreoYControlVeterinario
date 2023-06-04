@@ -1,3 +1,12 @@
+-- ----------------------------------------------------
+-- INTEGRANTES
+-- ----------------------------------------------------
+-- ENRIQUE JOSÉ CARDONA GUARDADO
+-- NESTOR OSWALDO ALVAREZ CRUZ
+-- PEDRO ARTURO GUTIERREZ CARDONA
+-- CARLOS BENJAMIN GARCÍA GANUZA
+-- ----------------------------------------------------
+
 CREATE DATABASE  IF NOT EXISTS `mycitavet_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `mycitavet_db`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
