@@ -615,7 +615,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // btnEditar
             // 
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.setting;
+            this.btnEditar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.edit;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(65, 28);

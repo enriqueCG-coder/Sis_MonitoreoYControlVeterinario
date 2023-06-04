@@ -165,7 +165,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Especie
             // lblBuscar
             // 
             this.lblBuscar.ForeColor = System.Drawing.Color.White;
-            this.lblBuscar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.search;
+            this.lblBuscar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.buscar;
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(108, 28);
             this.lblBuscar.Text = "Buscar Especie";

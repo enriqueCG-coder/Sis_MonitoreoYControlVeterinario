@@ -43,3 +43,15 @@ C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\UI
 C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota.frmMascotas.resources
 C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota.frmInfoMascota.resources
 C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Producto.frmProductos.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.csproj.AssemblyReference.cache
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota.frmCliente.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota.frmMascotas.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota.frmInfoMascota.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Especie.frmEspecie.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Producto.frmProductos.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.GUI.Raza_Especie.frmRaza_Especie.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.csproj.GenerateResource.cache
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.dll
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.pdb
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.Properties.Resources.resources
+C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CLIENTE_MASCOTA\obj\Debug\UI_CLIENTE_MASCOTA.csproj.CoreCompileInputs.cache

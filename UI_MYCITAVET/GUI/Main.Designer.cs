@@ -31,6 +31,9 @@ namespace UI_MYCITAVET.GUI
         {
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnminimizar = new System.Windows.Forms.PictureBox();
+            this.btncerrar = new System.Windows.Forms.PictureBox();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.panelSubMenuConfig = new System.Windows.Forms.Panel();
             this.btnOpciones = new System.Windows.Forms.Button();
@@ -53,28 +56,27 @@ namespace UI_MYCITAVET.GUI
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnMantenimientos = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelClientes = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnminimizar = new System.Windows.Forms.PictureBox();
-            this.btncerrar = new System.Windows.Forms.PictureBox();
-            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contadorCli = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelClientes = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.contadorMasc = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.contadorUsers = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.contadorCitas = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.panelSubMenuConfig.SuspendLayout();
             this.panelSubMenuConsultoria.SuspendLayout();
@@ -82,15 +84,13 @@ namespace UI_MYCITAVET.GUI
             this.panelSubMenuMant.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -117,6 +117,42 @@ namespace UI_MYCITAVET.GUI
             this.label1.Size = new System.Drawing.Size(234, 32);
             this.label1.TabIndex = 20;
             this.label1.Text = "MENU PRINCIPAL";
+            // 
+            // btnminimizar
+            // 
+            this.btnminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnminimizar.Image = global::UI_MYCITAVET.Properties.Resources.minus;
+            this.btnminimizar.Location = new System.Drawing.Point(1291, 3);
+            this.btnminimizar.Name = "btnminimizar";
+            this.btnminimizar.Size = new System.Drawing.Size(15, 15);
+            this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnminimizar.TabIndex = 19;
+            this.btnminimizar.TabStop = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
+            // 
+            // btncerrar
+            // 
+            this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btncerrar.Image = global::UI_MYCITAVET.Properties.Resources.cross;
+            this.btncerrar.Location = new System.Drawing.Point(1312, 3);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(15, 15);
+            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btncerrar.TabIndex = 18;
+            this.btncerrar.TabStop = false;
+            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.panelLogo.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.logotipo;
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(215, 126);
+            this.panelLogo.TabIndex = 1;
             // 
             // pnlPrincipal
             // 
@@ -485,6 +521,21 @@ namespace UI_MYCITAVET.GUI
             this.statusStrip.TabIndex = 8;
             this.statusStrip.Text = "StatusStrip";
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.lblUsuario.Image = global::UI_MYCITAVET.Properties.Resources.user;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(84, 28);
+            this.lblUsuario.Text = "USUARIO";
+            // 
+            // lblRol
+            // 
+            this.lblRol.Image = global::UI_MYCITAVET.Properties.Resources.iconrol;
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(53, 28);
+            this.lblRol.Text = "ROL";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -498,6 +549,28 @@ namespace UI_MYCITAVET.GUI
             this.panel1.Size = new System.Drawing.Size(541, 236);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // contadorCli
+            // 
+            this.contadorCli.AutoSize = true;
+            this.contadorCli.BackColor = System.Drawing.SystemColors.Window;
+            this.contadorCli.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contadorCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.contadorCli.Location = new System.Drawing.Point(281, 52);
+            this.contadorCli.Name = "contadorCli";
+            this.contadorCli.Size = new System.Drawing.Size(177, 77);
+            this.contadorCli.TabIndex = 3;
+            this.contadorCli.Text = "0001";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.clientes;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(20, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(187, 131);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // labelClientes
             // 
@@ -524,6 +597,28 @@ namespace UI_MYCITAVET.GUI
             this.panel3.TabIndex = 10;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // contadorMasc
+            // 
+            this.contadorMasc.AutoSize = true;
+            this.contadorMasc.BackColor = System.Drawing.SystemColors.Window;
+            this.contadorMasc.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contadorMasc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.contadorMasc.Location = new System.Drawing.Point(286, 52);
+            this.contadorMasc.Name = "contadorMasc";
+            this.contadorMasc.Size = new System.Drawing.Size(177, 77);
+            this.contadorMasc.TabIndex = 4;
+            this.contadorMasc.Text = "0002";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.mascotas;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(47, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(165, 128);
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -548,6 +643,28 @@ namespace UI_MYCITAVET.GUI
             this.panel2.Size = new System.Drawing.Size(541, 236);
             this.panel2.TabIndex = 11;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // contadorUsers
+            // 
+            this.contadorUsers.AutoSize = true;
+            this.contadorUsers.BackColor = System.Drawing.SystemColors.Window;
+            this.contadorUsers.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contadorUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.contadorUsers.Location = new System.Drawing.Point(281, 67);
+            this.contadorUsers.Name = "contadorUsers";
+            this.contadorUsers.Size = new System.Drawing.Size(177, 77);
+            this.contadorUsers.TabIndex = 4;
+            this.contadorUsers.Text = "0003";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.usuarios;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(187, 131);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -574,145 +691,6 @@ namespace UI_MYCITAVET.GUI
             this.panel4.TabIndex = 12;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.label3.Location = new System.Drawing.Point(25, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(394, 41);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "CITAS PROGRAMADAS";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.agenda;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(47, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(165, 146);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.usuarios;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 131);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.mascotas;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(47, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(165, 128);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.clientes;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(20, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(187, 131);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.lblUsuario.Image = global::UI_MYCITAVET.Properties.Resources.user;
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(84, 28);
-            this.lblUsuario.Text = "USUARIO";
-            // 
-            // lblRol
-            // 
-            this.lblRol.Image = global::UI_MYCITAVET.Properties.Resources.iconrol;
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(53, 28);
-            this.lblRol.Text = "ROL";
-            // 
-            // btnminimizar
-            // 
-            this.btnminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnminimizar.Image = global::UI_MYCITAVET.Properties.Resources.minus;
-            this.btnminimizar.Location = new System.Drawing.Point(1291, 3);
-            this.btnminimizar.Name = "btnminimizar";
-            this.btnminimizar.Size = new System.Drawing.Size(15, 15);
-            this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnminimizar.TabIndex = 19;
-            this.btnminimizar.TabStop = false;
-            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
-            // 
-            // btncerrar
-            // 
-            this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btncerrar.Image = global::UI_MYCITAVET.Properties.Resources.cross;
-            this.btncerrar.Location = new System.Drawing.Point(1312, 3);
-            this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(15, 15);
-            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btncerrar.TabIndex = 18;
-            this.btncerrar.TabStop = false;
-            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.panelLogo.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.logotipo;
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(215, 126);
-            this.panelLogo.TabIndex = 1;
-            // 
-            // contadorCli
-            // 
-            this.contadorCli.AutoSize = true;
-            this.contadorCli.BackColor = System.Drawing.SystemColors.Window;
-            this.contadorCli.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contadorCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.contadorCli.Location = new System.Drawing.Point(281, 52);
-            this.contadorCli.Name = "contadorCli";
-            this.contadorCli.Size = new System.Drawing.Size(177, 77);
-            this.contadorCli.TabIndex = 3;
-            this.contadorCli.Text = "0001";
-            // 
-            // contadorMasc
-            // 
-            this.contadorMasc.AutoSize = true;
-            this.contadorMasc.BackColor = System.Drawing.SystemColors.Window;
-            this.contadorMasc.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contadorMasc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.contadorMasc.Location = new System.Drawing.Point(286, 52);
-            this.contadorMasc.Name = "contadorMasc";
-            this.contadorMasc.Size = new System.Drawing.Size(177, 77);
-            this.contadorMasc.TabIndex = 4;
-            this.contadorMasc.Text = "0002";
-            // 
-            // contadorUsers
-            // 
-            this.contadorUsers.AutoSize = true;
-            this.contadorUsers.BackColor = System.Drawing.SystemColors.Window;
-            this.contadorUsers.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contadorUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.contadorUsers.Location = new System.Drawing.Point(281, 67);
-            this.contadorUsers.Name = "contadorUsers";
-            this.contadorUsers.Size = new System.Drawing.Size(177, 77);
-            this.contadorUsers.TabIndex = 4;
-            this.contadorUsers.Text = "0003";
-            // 
             // contadorCitas
             // 
             this.contadorCitas.AutoSize = true;
@@ -724,6 +702,28 @@ namespace UI_MYCITAVET.GUI
             this.contadorCitas.Size = new System.Drawing.Size(177, 77);
             this.contadorCitas.TabIndex = 4;
             this.contadorCitas.Text = "0004";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::UI_MYCITAVET.Properties.Resources.agenda;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(47, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(165, 146);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Window;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.label3.Location = new System.Drawing.Point(25, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(394, 41);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "CITAS PROGRAMADAS";
             // 
             // Main
             // 
@@ -745,6 +745,8 @@ namespace UI_MYCITAVET.GUI
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
             this.panelSubMenuConfig.ResumeLayout(false);
             this.panelSubMenuConsultoria.ResumeLayout(false);
@@ -754,18 +756,16 @@ namespace UI_MYCITAVET.GUI
             this.statusStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
