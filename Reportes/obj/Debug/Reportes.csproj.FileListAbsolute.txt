@@ -1,0 +1,6 @@
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\bin\Debug\Reportes.dll
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\bin\Debug\Reportes.pdb
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\obj\Debug\Reportes.csproj.AssemblyReference.cache
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\obj\Debug\Reportes.csproj.CoreCompileInputs.cache
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\obj\Debug\Reportes.dll
+C:\Users\enriq\Music\Sistema de Monitoreo y Control de Citas para Veterinaria\Reportes\obj\Debug\Reportes.pdb

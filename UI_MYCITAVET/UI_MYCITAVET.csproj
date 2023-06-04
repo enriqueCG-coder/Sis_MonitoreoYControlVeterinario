@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76C81513-D3C9-4004-BBDA-4EB714B73F34}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI_MYCITAVET</RootNamespace>
+    <AssemblyName>UI_MYCITAVET</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CLS\AppManager.cs" />
+    <Compile Include="GUI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataManager\DataManager.csproj">
+      <Project>{8141def2-21cf-4408-aab4-bca61c818393}</Project>
+      <Name>DataManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SessionManager\SessionManager.csproj">
+      <Project>{370b65b1-5171-416f-ac4b-610d01eae57c}</Project>
+      <Name>SessionManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI_CLIENTE_MASCOTA\UI_CLIENTE_MASCOTA.csproj">
+      <Project>{d56b4bb6-1ecc-4b74-82ee-fa81fe39bb99}</Project>
+      <Name>UI_CLIENTE_MASCOTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI_CONFIGURACIONES\UI_CONFIGURACIONES.csproj">
+      <Project>{3e4ce338-20ba-401e-86e9-666b3e0eb3c3}</Project>
+      <Name>UI_CONFIGURACIONES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI_CONSULTORIA\UI_CONSULTORIA.csproj">
+      <Project>{77cf2c69-268f-43b6-90ba-7f6b353a9a44}</Project>
+      <Name>UI_CONSULTORIA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI_MANTENIMIENTOS\UI_MANTENIMIENTOS.csproj">
+      <Project>{7e821fc6-9c81-4074-a39f-83135b2b5fc3}</Project>
+      <Name>UI_MANTENIMIENTOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\atras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\Cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\Daco_4810872.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\Daco_4812183.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\logotipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\Splash1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\iconrol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\logoedit.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\clientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\mascotas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENES\agenda.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
