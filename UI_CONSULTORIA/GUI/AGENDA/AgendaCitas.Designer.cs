@@ -52,6 +52,8 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelCitasAgend.SuspendLayout();
             this.panelCita.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -299,7 +301,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(779, 2);
+            this.label3.Location = new System.Drawing.Point(947, 2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 20);
             this.label3.TabIndex = 38;
@@ -308,7 +310,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(783, 25);
+            this.dtpFecha.Location = new System.Drawing.Point(951, 25);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 20);
             this.dtpFecha.TabIndex = 39;
@@ -318,6 +320,8 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.btnReporte);
             this.panel2.Controls.Add(this.dtpFecha);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
@@ -329,6 +333,32 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1163, 58);
             this.panel2.TabIndex = 40;
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnReporte.BackgroundImage = global::UI_CONSULTORIA.Properties.Resources.reporte;
+            this.btnReporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.ForeColor = System.Drawing.Color.White;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(901, 12);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(40, 37);
+            this.btnReporte.TabIndex = 40;
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(723, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 20);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Crear reporte de citas";
             // 
             // AgendaCitas
             // 
@@ -381,5 +411,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Label label4;
     }
 }

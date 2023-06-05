@@ -139,6 +139,10 @@
       <Project>{8141def2-21cf-4408-aab4-bca61c818393}</Project>
       <Name>DataManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reportes\Reportes.csproj">
+      <Project>{c3e287c6-b7e7-4067-b05a-95d10822961a}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SessionManager\SessionManager.csproj">
       <Project>{370b65b1-5171-416f-ac4b-610d01eae57c}</Project>
       <Name>SessionManager</Name>
@@ -158,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconologo.ico" />
+    <None Include="Resources\reporte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

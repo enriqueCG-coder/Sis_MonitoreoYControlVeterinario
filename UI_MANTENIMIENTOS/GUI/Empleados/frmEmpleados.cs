@@ -467,10 +467,9 @@ namespace UI_MANTENIMIENTOS.GUI
         #region DIRECCION
         private void rtxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            if (e.KeyChar == '\'' || e.KeyChar == '*')
             {
-                e.Handled = true; // Rechazar la entrada de la tecla
+                e.Handled = true; // Cancelar la tecla presionada
             }
         }
 

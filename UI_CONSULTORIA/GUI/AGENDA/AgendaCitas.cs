@@ -259,5 +259,10 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             //dgvCitasDelDia.Columns["Nombre"].Visible = false;
         }
 
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            Reportes.GUI.frmCitas reporte = new Reportes.GUI.frmCitas();
+            reporte.ShowDialog();
+        }
     }
 }

@@ -20,8 +20,8 @@ namespace UI_MYCITAVET.GUI
         public Login()
         {
             InitializeComponent();
-            txtUser.Text = "VETUSER1-C";
-            txtPassword.Text = "123";
+            txtUser.Text = "";
+            txtPassword.Text = "";
         }
 
 
