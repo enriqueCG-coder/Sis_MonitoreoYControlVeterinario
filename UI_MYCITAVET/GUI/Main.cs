@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,13 +27,13 @@ namespace UI_MYCITAVET.GUI
         {
             lblUsuario.Text = oSesion.Usuario;
             lblRol.Text = oSesion.Rol;
+            totalMascotas();
+            totalCitas();
+            totalUsuarios();
+            totalClientes();
         }
 
-        //BOTON PARA CERRAR EL SISTEMA 
-        private void btncerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         //BOTON PARA MINIMIZAR LA PANTALLA DEL MENU PRINCIPAL
         private void btnminimizar_Click(object sender, EventArgs e)
@@ -281,9 +282,14 @@ namespace UI_MYCITAVET.GUI
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            
+            if(MessageBox.Show("Está seguro de cerrar sesión?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){
+                
+                this.Close();
+            }
         }
 
+
+        #region COLORES DE BORDE PARA LOS PANELES DASHBOARDS
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, Color.Purple, ButtonBorderStyle.Solid);
@@ -302,6 +308,66 @@ namespace UI_MYCITAVET.GUI
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, panel4.ClientRectangle, Color.Purple, ButtonBorderStyle.Solid);
+        }
+        #endregion  
+
+        #region CONTADORES DASHBOARD
+        //OBTIENE EL TOTAL DE CLIENTES
+        public void totalClientes()
+        {
+            DataTable result = DBConsultas.totalClientes();
+
+            if (result.Rows.Count > 0 && result.Columns.Contains("Clientes"))
+            {
+                int total = Convert.ToInt32(result.Rows[0]["Clientes"]);
+
+                contadorCli.Text = total.ToString();
+            }
+        }
+
+        //OBTIENE EL TOTAL DE MASCOTAS 
+        public void totalMascotas()
+        {
+            DataTable result = DBConsultas.totalMascotas();
+
+            if (result.Rows.Count > 0 && result.Columns.Contains("Mascotas"))
+            {
+                int total = Convert.ToInt32(result.Rows[0]["Mascotas"]);
+
+                contadorMasc.Text = total.ToString();
+            }
+        }
+
+        //OBTIENE EL TOTAL DE USUARIOS
+        public void totalUsuarios()
+        {
+            DataTable result = DBConsultas.totalUsuarios();
+
+            if (result.Rows.Count > 0 && result.Columns.Contains("Usuarios"))
+            {
+                int total = Convert.ToInt32(result.Rows[0]["Usuarios"]);
+
+                contadorUsers.Text = total.ToString();
+            }
+        }
+
+        //OBTIENE EL TOTAL DE LAS CITAS CON ESTADO AGENDADAS
+        public void totalCitas()
+        {
+            DataTable result = DBConsultas.totalCitas();
+
+            if (result.Rows.Count > 0 && result.Columns.Contains("Citas"))
+            {
+                int total = Convert.ToInt32(result.Rows[0]["Citas"]);
+
+                contadorCitas.Text = total.ToString();
+            }
+        }
+        #endregion
+
+        private void cronometro_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

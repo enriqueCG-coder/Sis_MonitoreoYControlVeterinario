@@ -33,17 +33,40 @@ namespace UI_MYCITAVET.CLS
 
             return Resultado;
         }
+        //public AppManager()
+        //{
+        //    if (Splash())
+        //    {
+        //        if (Login())
+        //        {
+        //            GUI.Main f = new GUI.Main();
+        //            f.Show();
+        //        }
+        //    }
+
+        //}
+
+
         public AppManager()
         {
-            if (Splash())
+            while (true)
             {
-                if (Login())
+                if (Splash())
                 {
-                    GUI.Main f = new GUI.Main();
-                    f.ShowDialog();
+                    if (Login())
+                    {
+                        GUI.Main f = new GUI.Main();
+                        f.ShowDialog();
+
+                        // Verifica el resultado del formulario principal
+                        if (f.DialogResult == DialogResult.Yes)
+                        {
+                            f.Dispose(); // Libera los recursos del formulario principal
+                        }
+                    }
                 }
             }
-
         }
+
     }
 }

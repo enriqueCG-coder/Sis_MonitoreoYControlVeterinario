@@ -35,6 +35,7 @@ namespace UI_MYCITAVET.GUI
             // 
             // Crono
             // 
+            this.Crono.Interval = 2000;
             this.Crono.Tick += new System.EventHandler(this.Crono_Tick);
             // 
             // Splash

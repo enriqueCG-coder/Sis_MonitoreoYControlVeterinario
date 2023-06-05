@@ -24,7 +24,7 @@ namespace UI_MYCITAVET.GUI
 
         private void Crono_Tick(object sender, EventArgs e)
         {
-            Crono.Start();
+            Crono.Stop();
             Close();
         }
     }

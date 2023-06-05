@@ -22,6 +22,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             InitializeComponent();
         }
 
+        BindingSource _DATOS = new BindingSource();
 
         #region VARIABLES PARA CARGAR AL CLIENTE EN MASCOTA
         public string IDCliente { get; set; }
@@ -145,18 +146,20 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         }
 
         //METODO PARA CARGAR LAS MASCOTAS SEGUN EL ID DEL CLIENTE EN EL DATAGRIDVIEW
-        public void cargarMascotas()
+        private void cargarMascotas()
         {
-            dgvMascota.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
-            DataTable Resultado = new DataTable();
-            Resultado = Operacion.Consultar("SELECT m.IDMascota, m.Nombre, m.Genero, m.IDRaza,r.Raza, r.IDEspecie, e.Especie, m.Color, m.Rasgo, m.FechaNac " +
-                                            "FROM mascotas m " +
-                                            "INNER JOIN Razas r ON m.IDRaza = r.IDRaza " +
-                                            "INNER JOIN Especies e ON r.IDEspecie = e.IDEspecie WHERE IDCliente = " + IDCliente + ";");
-            dgvMascota.DataSource = Resultado;
-            lblRegistros.Text = dgvMascota.Rows.Count.ToString() + " Registros Encontrados";
-            cargarDatosCliente();
+            try
+            {
+                dgvMascota.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _DATOS.DataSource = DataManager.DBConsultas.getMascotaByCliente(IDCliente);
+                dgvMascota.DataSource = _DATOS;
+                lblRegistros.Text = dgvMascota.Rows.Count.ToString() + " Registros Encontrados";
+                cargarDatosCliente();
+            }
+            catch (Exception)
+            {
+                //NO DEVUELVE HACE NADA 
+            }
         }
 
         //OBTIENE LAS ESPECIES EN EL COMBOBOX DE ESPECIES
@@ -289,12 +292,10 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                 txtMascota.Text = mascota;
 
                 Random random = new Random();
-
                 string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
                 string cadenaGenerada = GenerarCadenaAleatoria(random, caracteres, 6);
-
-                txtCorrelativo.Text = cadenaGenerada;
+                //se le pasa la cadena generada al textbox correlativo
+                txtCorrelativo.Text = "#"+"-"+cadenaGenerada;
             }
         }
 
@@ -504,7 +505,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // Crear el mensaje de correo
             MailMessage mensaje = new MailMessage(remitente, destinatario);
             mensaje.Subject = "Notificación Veterinaria";
-            mensaje.Body = "Correlativo # "+ txtCorrelativo.Text + ". La cita de su mascota "+ txtMascota.Text +" ha sido agendada para el día "+ fecha+" " + txtFin.Text + ". Favor se le solicita ser puntual.";
+            mensaje.Body = "Correlativo "+ txtCorrelativo.Text + ". La cita de su mascota "+ txtMascota.Text +" ha sido agendada para el día "+ fecha+" " + txtFin.Text + ". Favor se le solicita ser puntual.";
 
             //creacion del objeto entidad
             CLS.Cita c = new CLS.Cita();

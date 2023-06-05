@@ -20,6 +20,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Producto
         BindingSource _DATOS = new BindingSource();
 
         #region METODOS
+
         //CONTADOR DE REGISTROS EN EL DATAGRIDVIEW
         private void cargarProductos()
         {

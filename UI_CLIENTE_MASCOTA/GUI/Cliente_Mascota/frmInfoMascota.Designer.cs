@@ -38,7 +38,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbDetalleHistorial = new System.Windows.Forms.GroupBox();
             this.btnCancelHist = new System.Windows.Forms.Button();
             this.btnGuardarHist = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMedida = new System.Windows.Forms.TextBox();
             this.dtFechaHist = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPeso = new System.Windows.Forms.TextBox();
@@ -64,23 +64,30 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtIDMascota = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAgregar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panelHistorial = new System.Windows.Forms.Panel();
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.txtIDProd = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.IDHistorial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MascotaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblEmpleado = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnAgregar = new System.Windows.Forms.ToolStripButton();
+            this.Id_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelIzquierdo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.plInfoCliente.SuspendLayout();
@@ -100,7 +107,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIzquierdo.Location = new System.Drawing.Point(0, 0);
             this.panelIzquierdo.Name = "panelIzquierdo";
-            this.panelIzquierdo.Size = new System.Drawing.Size(338, 478);
+            this.panelIzquierdo.Size = new System.Drawing.Size(338, 554);
             this.panelIzquierdo.TabIndex = 0;
             // 
             // panel2
@@ -133,14 +140,20 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.plInfoCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plInfoCliente.Location = new System.Drawing.Point(0, 0);
             this.plInfoCliente.Name = "plInfoCliente";
-            this.plInfoCliente.Size = new System.Drawing.Size(338, 478);
+            this.plInfoCliente.Size = new System.Drawing.Size(338, 554);
             this.plInfoCliente.TabIndex = 24;
             // 
             // gbDetalleHistorial
             // 
+            this.gbDetalleHistorial.Controls.Add(this.textBox2);
+            this.gbDetalleHistorial.Controls.Add(this.label7);
+            this.gbDetalleHistorial.Controls.Add(this.textBox1);
+            this.gbDetalleHistorial.Controls.Add(this.label6);
+            this.gbDetalleHistorial.Controls.Add(this.txtIDProd);
+            this.gbDetalleHistorial.Controls.Add(this.btnProducto);
             this.gbDetalleHistorial.Controls.Add(this.btnCancelHist);
             this.gbDetalleHistorial.Controls.Add(this.btnGuardarHist);
-            this.gbDetalleHistorial.Controls.Add(this.textBox1);
+            this.gbDetalleHistorial.Controls.Add(this.txtMedida);
             this.gbDetalleHistorial.Controls.Add(this.dtFechaHist);
             this.gbDetalleHistorial.Controls.Add(this.label1);
             this.gbDetalleHistorial.Controls.Add(this.txtPeso);
@@ -148,22 +161,23 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbDetalleHistorial.Controls.Add(this.label3);
             this.gbDetalleHistorial.Controls.Add(this.label4);
             this.gbDetalleHistorial.Controls.Add(this.txtIDHistoria);
+            this.gbDetalleHistorial.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDetalleHistorial.ForeColor = System.Drawing.Color.White;
             this.gbDetalleHistorial.Location = new System.Drawing.Point(13, 289);
             this.gbDetalleHistorial.Name = "gbDetalleHistorial";
-            this.gbDetalleHistorial.Size = new System.Drawing.Size(301, 177);
+            this.gbDetalleHistorial.Size = new System.Drawing.Size(301, 253);
             this.gbDetalleHistorial.TabIndex = 18;
             this.gbDetalleHistorial.TabStop = false;
-            this.gbDetalleHistorial.Text = "Detalle de Historia";
+            this.gbDetalleHistorial.Text = "DETALLE DE HISTORIA";
             // 
             // btnCancelHist
             // 
             this.btnCancelHist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             this.btnCancelHist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCancelHist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelHist.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelHist.ForeColor = System.Drawing.Color.White;
             this.btnCancelHist.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelHist.Location = new System.Drawing.Point(101, 142);
+            this.btnCancelHist.Location = new System.Drawing.Point(96, 218);
             this.btnCancelHist.Name = "btnCancelHist";
             this.btnCancelHist.Size = new System.Drawing.Size(98, 29);
             this.btnCancelHist.TabIndex = 34;
@@ -175,10 +189,10 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // 
             this.btnGuardarHist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             this.btnGuardarHist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardarHist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarHist.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarHist.ForeColor = System.Drawing.Color.White;
             this.btnGuardarHist.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardarHist.Location = new System.Drawing.Point(207, 142);
+            this.btnGuardarHist.Location = new System.Drawing.Point(202, 218);
             this.btnGuardarHist.Name = "btnGuardarHist";
             this.btnGuardarHist.Size = new System.Drawing.Size(82, 29);
             this.btnGuardarHist.TabIndex = 33;
@@ -186,45 +200,45 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.btnGuardarHist.UseVisualStyleBackColor = false;
             this.btnGuardarHist.Click += new System.EventHandler(this.btnGuardarHist_Click);
             // 
-            // textBox1
+            // txtMedida
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(161, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 20);
-            this.textBox1.TabIndex = 32;
+            this.txtMedida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMedida.Enabled = false;
+            this.txtMedida.Location = new System.Drawing.Point(156, 192);
+            this.txtMedida.Name = "txtMedida";
+            this.txtMedida.Size = new System.Drawing.Size(54, 21);
+            this.txtMedida.TabIndex = 32;
             // 
             // dtFechaHist
             // 
             this.dtFechaHist.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaHist.Location = new System.Drawing.Point(101, 41);
+            this.dtFechaHist.Location = new System.Drawing.Point(96, 117);
             this.dtFechaHist.Name = "dtFechaHist";
-            this.dtFechaHist.Size = new System.Drawing.Size(81, 20);
+            this.dtFechaHist.Size = new System.Drawing.Size(81, 21);
             this.dtFechaHist.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 120);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(47, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.Size = new System.Drawing.Size(42, 17);
             this.label1.TabIndex = 18;
             this.label1.Text = "Peso:";
             // 
             // txtPeso
             // 
             this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPeso.Location = new System.Drawing.Point(101, 116);
+            this.txtPeso.Location = new System.Drawing.Point(96, 192);
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(54, 20);
+            this.txtPeso.Size = new System.Drawing.Size(54, 21);
             this.txtPeso.TabIndex = 17;
             // 
             // txtDiagnostico
             // 
             this.txtDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiagnostico.Location = new System.Drawing.Point(101, 68);
+            this.txtDiagnostico.Location = new System.Drawing.Point(96, 144);
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(188, 42);
@@ -233,20 +247,20 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 72);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 16);
+            this.label3.Size = new System.Drawing.Size(90, 17);
             this.label3.TabIndex = 15;
             this.label3.Text = "Diágnostico:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(46, 45);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(41, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Fecha:";
             // 
@@ -255,7 +269,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtIDHistoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDHistoria.Location = new System.Drawing.Point(12, 21);
             this.txtIDHistoria.Name = "txtIDHistoria";
-            this.txtIDHistoria.Size = new System.Drawing.Size(30, 20);
+            this.txtIDHistoria.Size = new System.Drawing.Size(30, 21);
             this.txtIDHistoria.TabIndex = 12;
             this.txtIDHistoria.Visible = false;
             // 
@@ -276,7 +290,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtIDMascota);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
@@ -291,16 +305,16 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtFechaNac.Enabled = false;
             this.txtFechaNac.Location = new System.Drawing.Point(108, 197);
             this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(187, 21);
+            this.txtFechaNac.Size = new System.Drawing.Size(187, 22);
             this.txtFechaNac.TabIndex = 25;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(8, 202);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 16);
+            this.label17.Size = new System.Drawing.Size(88, 17);
             this.label17.TabIndex = 24;
             this.label17.Text = "Nacimiento:";
             // 
@@ -310,16 +324,16 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtRasgo.Enabled = false;
             this.txtRasgo.Location = new System.Drawing.Point(108, 170);
             this.txtRasgo.Name = "txtRasgo";
-            this.txtRasgo.Size = new System.Drawing.Size(188, 21);
+            this.txtRasgo.Size = new System.Drawing.Size(188, 22);
             this.txtRasgo.TabIndex = 23;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(26, 175);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(59, 16);
+            this.label15.Size = new System.Drawing.Size(57, 17);
             this.label15.TabIndex = 22;
             this.label15.Text = "Rasgos:";
             // 
@@ -329,16 +343,16 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtColor.Enabled = false;
             this.txtColor.Location = new System.Drawing.Point(108, 143);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(188, 21);
+            this.txtColor.Size = new System.Drawing.Size(188, 22);
             this.txtColor.TabIndex = 21;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(42, 148);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 16);
+            this.label14.Size = new System.Drawing.Size(48, 17);
             this.label14.TabIndex = 20;
             this.label14.Text = "Color:";
             // 
@@ -348,26 +362,26 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtEspecie.Enabled = false;
             this.txtEspecie.Location = new System.Drawing.Point(107, 116);
             this.txtEspecie.Name = "txtEspecie";
-            this.txtEspecie.Size = new System.Drawing.Size(189, 21);
+            this.txtEspecie.Size = new System.Drawing.Size(189, 22);
             this.txtEspecie.TabIndex = 19;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(26, 121);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 16);
+            this.label10.Size = new System.Drawing.Size(60, 17);
             this.label10.TabIndex = 18;
             this.label10.Text = "Especie:";
             // 
             // lblTipoDoc
             // 
             this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDoc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoDoc.Location = new System.Drawing.Point(43, 94);
             this.lblTipoDoc.Name = "lblTipoDoc";
-            this.lblTipoDoc.Size = new System.Drawing.Size(43, 16);
+            this.lblTipoDoc.Size = new System.Drawing.Size(44, 17);
             this.lblTipoDoc.TabIndex = 11;
             this.lblTipoDoc.Text = "Raza:";
             // 
@@ -377,7 +391,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtRaza.Enabled = false;
             this.txtRaza.Location = new System.Drawing.Point(107, 89);
             this.txtRaza.Name = "txtRaza";
-            this.txtRaza.Size = new System.Drawing.Size(188, 21);
+            this.txtRaza.Size = new System.Drawing.Size(188, 22);
             this.txtRaza.TabIndex = 10;
             // 
             // txtSexo
@@ -386,16 +400,16 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtSexo.Enabled = false;
             this.txtSexo.Location = new System.Drawing.Point(107, 62);
             this.txtSexo.Name = "txtSexo";
-            this.txtSexo.Size = new System.Drawing.Size(188, 21);
+            this.txtSexo.Size = new System.Drawing.Size(188, 22);
             this.txtSexo.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(44, 67);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 16);
+            this.label5.Size = new System.Drawing.Size(41, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Sexo:";
             // 
@@ -405,16 +419,16 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(107, 35);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(188, 21);
+            this.txtNombre.Size = new System.Drawing.Size(188, 22);
             this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
             // 
@@ -423,7 +437,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtIDMascota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDMascota.Location = new System.Drawing.Point(18, 15);
             this.txtIDMascota.Name = "txtIDMascota";
-            this.txtIDMascota.Size = new System.Drawing.Size(30, 21);
+            this.txtIDMascota.Size = new System.Drawing.Size(30, 22);
             this.txtIDMascota.TabIndex = 0;
             this.txtIDMascota.Visible = false;
             // 
@@ -451,15 +465,48 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.trash;
+            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(81, 28);
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.edit;
+            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(70, 28);
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.plus;
+            this.btnAgregar.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(123, 28);
+            this.btnAgregar.Text = "Nuevo Historia";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // toolStripSeparator4
             // 
@@ -474,7 +521,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.panelHistorial.Controls.Add(this.panelHeader);
             this.panelHistorial.Location = new System.Drawing.Point(375, 71);
             this.panelHistorial.Name = "panelHistorial";
-            this.panelHistorial.Size = new System.Drawing.Size(704, 354);
+            this.panelHistorial.Size = new System.Drawing.Size(704, 387);
             this.panelHistorial.TabIndex = 42;
             // 
             // dgvHistorial
@@ -492,7 +539,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.dgvHistorial.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -505,10 +552,11 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.MascotaID,
             this.Fecha,
             this.Diagnostico,
-            this.Peso});
+            this.Peso,
+            this.Id_Producto});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
@@ -527,47 +575,15 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.dgvHistorial.RowTemplate.Height = 40;
             this.dgvHistorial.RowTemplate.ReadOnly = true;
             this.dgvHistorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistorial.Size = new System.Drawing.Size(700, 263);
+            this.dgvHistorial.Size = new System.Drawing.Size(700, 296);
             this.dgvHistorial.TabIndex = 42;
-            // 
-            // IDHistorial
-            // 
-            this.IDHistorial.DataPropertyName = "IDHistorial";
-            this.IDHistorial.HeaderText = "IDHistorial";
-            this.IDHistorial.Name = "IDHistorial";
-            this.IDHistorial.Visible = false;
-            // 
-            // MascotaID
-            // 
-            this.MascotaID.DataPropertyName = "IDMascota";
-            this.MascotaID.HeaderText = "IDMascota";
-            this.MascotaID.Name = "MascotaID";
-            this.MascotaID.Visible = false;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Diagnostico
-            // 
-            this.Diagnostico.DataPropertyName = "Diagnostico";
-            this.Diagnostico.HeaderText = "Diagnostico";
-            this.Diagnostico.Name = "Diagnostico";
-            // 
-            // Peso
-            // 
-            this.Peso.DataPropertyName = "Peso";
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblRegistros});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 328);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 361);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(700, 22);
             this.statusStrip1.TabIndex = 41;
@@ -602,41 +618,111 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.lblEmpleado.TabIndex = 0;
             this.lblEmpleado.Text = "HISTORIAL CLINICO ";
             // 
-            // btnEliminar
+            // btnProducto
             // 
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.trash;
-            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(78, 28);
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnProducto.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.Color.White;
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProducto.Location = new System.Drawing.Point(96, 21);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(188, 30);
+            this.btnProducto.TabIndex = 35;
+            this.btnProducto.Text = "Seleccionar producto";
+            this.btnProducto.UseVisualStyleBackColor = false;
             // 
-            // btnEditar
+            // txtIDProd
             // 
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.edit;
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(65, 28);
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.txtIDProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIDProd.Location = new System.Drawing.Point(56, 28);
+            this.txtIDProd.Name = "txtIDProd";
+            this.txtIDProd.Size = new System.Drawing.Size(30, 21);
+            this.txtIDProd.TabIndex = 36;
+            this.txtIDProd.Visible = false;
             // 
-            // btnAgregar
+            // textBox1
             // 
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.plus;
-            this.btnAgregar.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(114, 28);
-            this.btnAgregar.Text = "Nuevo Historia";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(96, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 21);
+            this.textBox1.TabIndex = 38;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 17);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Producto:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(96, 90);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(187, 21);
+            this.textBox2.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 17);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Cantidad:";
+            // 
+            // IDHistorial
+            // 
+            this.IDHistorial.DataPropertyName = "IDHistorial";
+            this.IDHistorial.HeaderText = "IDHistorial";
+            this.IDHistorial.Name = "IDHistorial";
+            this.IDHistorial.Visible = false;
+            // 
+            // MascotaID
+            // 
+            this.MascotaID.DataPropertyName = "IDMascota";
+            this.MascotaID.HeaderText = "IDMascota";
+            this.MascotaID.Name = "MascotaID";
+            this.MascotaID.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Diagnostico
+            // 
+            this.Diagnostico.DataPropertyName = "Diagnostico";
+            this.Diagnostico.HeaderText = "Diagnostico";
+            this.Diagnostico.Name = "Diagnostico";
+            // 
+            // Peso
+            // 
+            this.Peso.DataPropertyName = "Peso";
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
+            // 
+            // Id_Producto
+            // 
+            this.Id_Producto.DataPropertyName = "Id_Producto";
+            this.Id_Producto.HeaderText = "Id_Producto";
+            this.Id_Producto.Name = "Id_Producto";
+            this.Id_Producto.Visible = false;
             // 
             // frmInfoMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 478);
+            this.ClientSize = new System.Drawing.Size(1112, 554);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelIzquierdo);
@@ -707,16 +793,23 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.DateTimePicker dtFechaHist;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtMedida;
         private System.Windows.Forms.Button btnCancelHist;
         private System.Windows.Forms.Button btnGuardarHist;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel lblRegistros;
         public System.Windows.Forms.DataGridView dgvHistorial;
+        private System.Windows.Forms.Button btnProducto;
+        public System.Windows.Forms.TextBox txtIDProd;
+        public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDHistorial;
         private System.Windows.Forms.DataGridViewTextBoxColumn MascotaID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Diagnostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Producto;
     }
 }

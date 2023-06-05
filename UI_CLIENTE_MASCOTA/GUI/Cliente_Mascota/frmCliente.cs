@@ -18,37 +18,35 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             InitializeComponent();
         }
 
-        Color color2 = Color.FromArgb(80, 17, 104); 
+        BindingSource _DATOS = new BindingSource();
+
+        Color color2 = Color.FromArgb(80, 17, 104);
         Color color1 = Color.FromArgb(91, 87, 165);
 
 
         #region METODOS
 
-        //CARGA LOS DATOS EN EL DATAGRIDVIEW
+        //CARGA LOS DATOS DEL CLIENTE EN EL DATAGRIDVIEW
         public void cargarDatos()
         {
-            dgvCliente.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
-            DataTable Resultado = new DataTable();
-            Resultado = Operacion.Consultar("SELECT C.IDCliente, C.Nombres, " +
-                                            "C.Apellidos, C.FechaNac, C.Genero," +
-                                            "D.Nombre as Departamento, M.Nombre as Municipio, " +
-                                            "C.Direccion, C.TipoDoc, C.Documento, " +
-                                            "C.Correo, C.Telefono, D.Id, C.IdMunicipio FROM Clientes as C " +
-                                            "INNER JOIN Municipio as M " +
-                                            "ON M.Id = C.IdMunicipio " +
-                                            "INNER JOIN Departamento as D " +
-                                            "ON D.Id = M.IdDepartamento;");
-            dgvCliente.DataSource = Resultado;
-            lblRegistros.Text = dgvCliente.Rows.Count.ToString() + " Registros Encontrados";
-            dgvCliente.Columns["IDCliente"].Visible = false;
-            dgvCliente.Columns["IDMunicipio"].Visible = false;
-            dgvCliente.Columns["FechaNac"].Visible = false;
-            dgvCliente.Columns["ID"].Visible = false;
-            dgvCliente.Columns["Departamento"].Visible = false;
-            dgvCliente.Columns["Municipio"].Visible = false;
-            dgvCliente.Columns["Direccion"].Visible = false;
-
+            try
+            {
+                dgvCliente.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _DATOS.DataSource = DataManager.DBConsultas.getClientes();
+                dgvCliente.DataSource = _DATOS;
+                lblRegistros.Text = dgvCliente.Rows.Count.ToString() + " Registros Encontrados";
+                dgvCliente.Columns["IDCliente"].Visible = false;
+                dgvCliente.Columns["IDMunicipio"].Visible = false;
+                dgvCliente.Columns["FechaNac"].Visible = false;
+                dgvCliente.Columns["ID"].Visible = false;
+                dgvCliente.Columns["Departamento"].Visible = false;
+                dgvCliente.Columns["Municipio"].Visible = false;
+                dgvCliente.Columns["Direccion"].Visible = false;
+            }
+            catch (Exception)
+            {
+                //NO DEVUELVE HACE NADA 
+            }
         }
 
         //BUSCA LOS DATOS EN EL DATGRIDVIEW
@@ -181,7 +179,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         //SUCEDE CUANDO SE DA CLIC EN LA IMAGEN DEL REGISTRO EN EL DATAGRIDVIEW
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dgvCliente.Columns["Imagen"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dgvCliente.Columns["Imagen"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow filaSeleccionada = dgvCliente.Rows[e.RowIndex];
                 string idcliente = filaSeleccionada.Cells["IDCliente"].Value.ToString();
@@ -340,7 +338,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         #endregion
 
 
-        
+
 
     }
 }

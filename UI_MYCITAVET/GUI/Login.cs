@@ -20,7 +20,6 @@ namespace UI_MYCITAVET.GUI
         public Login()
         {
             InitializeComponent();
-            txtUser.Focus();
             txtUser.Text = "VETUSER1-C";
             txtPassword.Text = "123";
         }
@@ -69,7 +68,7 @@ namespace UI_MYCITAVET.GUI
         //para cerrar el sistema
         private void btncerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
         }
 
         //para minimizar la ventana 

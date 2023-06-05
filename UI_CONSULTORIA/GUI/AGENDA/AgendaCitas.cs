@@ -17,25 +17,32 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             InitializeComponent();
         }
 
-        #region METODOS
-        //CARGA TODAS LAS CITAS 
-        public void cargarCitas()
-        {
-            
-            DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
-            DataTable Resultado = new DataTable();
-            Resultado = Operacion.Consultar(@"SELECT  ci.IDcita, ci.Correlativo_Cita, ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
-		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
-                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre, concat(c.TipoDoc, '-', c.Documento) as Documento 
-		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
-                                            INNER JOIN Razas r on m.IDRaza = r.IDraza 
-		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente;");
-            dgvCitasDelDia.DataSource = Resultado;
-            lblRegistros.Text = dgvCitasDelDia.Rows.Count.ToString() + " Registros Encontrados";
 
-            dgvCitasDelDia.Columns["IDCita"].Visible = false;
-            dgvCitasDelDia.Columns["IDMascota"].Visible = false;
-            dgvCitasDelDia.Columns["IDCliente"].Visible = false;
+        BindingSource _DATOS = new BindingSource();
+
+        #region METODOS
+        //CONTADOR Y OBTENCION DE REGISTROS EN EL DATAGRIDVIEW
+        private void cargarCitas()
+        {
+            try
+            {
+                dgvCitasDelDia.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _DATOS.DataSource = DataManager.DBConsultas.getCitasAgendadas();
+                dgvCitasDelDia.DataSource = _DATOS;
+                lblRegistros.Text = dgvCitasDelDia.Rows.Count.ToString() + " Registros Encontrados";
+                dgvCitasDelDia.Columns["IDCita"].Visible = false;
+                dgvCitasDelDia.Columns["IDMascota"].Visible = false;
+                dgvCitasDelDia.Columns["IDCliente"].Visible = false;
+                dgvCitasDelDia.Columns["Mascota"].Visible = false;
+                dgvCitasDelDia.Columns["Genero"].Visible = false;
+                dgvCitasDelDia.Columns["Raza"].Visible = false;
+                dgvCitasDelDia.Columns["Nombre"].Visible = false;
+                dgvCitasDelDia.Columns["Documento"].Visible = false;
+            }
+            catch (Exception)
+            {
+                //NO DEVUELVE HACE NADA 
+            }
         }
         #endregion 
 

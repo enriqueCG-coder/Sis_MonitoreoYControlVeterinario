@@ -17,7 +17,9 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             InitializeComponent();
         }
 
-        //VARIABLES DE MASCOTA
+        BindingSource _DATOS = new BindingSource();
+
+        #region VARIABLES DE LA MASCOTA
         public string IDMascota { get; set; }
         public string Nombre { get; set; }
         public string Genero { get; set; }
@@ -26,9 +28,26 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         public string Color { get; set; }
         public string Rasgo { get; set; }
         public string FechaNac { get; set; }
+        #endregion
 
 
         #region METODOS
+        //CONTADOR Y OBTENCION DE REGISTROS EN EL DATAGRIDVIEW
+        private void cargarHistorial()
+        {
+            try
+            {
+                dgvHistorial.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _DATOS.DataSource = DataManager.DBConsultas.getHistPorIDMascota(IDMascota);
+                dgvHistorial.DataSource = _DATOS;
+                lblRegistros.Text = dgvHistorial.Rows.Count.ToString() + " Registros Encontrados";
+            }
+            catch (Exception)
+            {
+                //NO DEVUELVE HACE NADA 
+            }
+        }
+
         //CARGA LOS DATOS DE LA MASCOTA 
         public void cargarDatosMascota()
         {
@@ -42,16 +61,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             txtFechaNac.Text = FechaNac;
         }
 
-        public void cargarHistorias()
-        {
-            dgvHistorial.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
-            DataTable Resultado = new DataTable();
-            Resultado = Operacion.Consultar(@"select * from historialclinico where IDMascota = "+ IDMascota+" ORDER BY Fecha asc;");
-            dgvHistorial.DataSource = Resultado;
-            lblRegistros.Text = dgvHistorial.Rows.Count.ToString() + " Registros Encontrados";
-        }
-
+        //LIMIPIA LOS CONTROLES QUE CONTIENE DATOS
         private void limpiarDetalle()
         {
             dtFechaHist.Value = DateTime.Now;
@@ -63,19 +73,21 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
 
 
         #region EVENTOS
-
+        //CUANDO SE INICIA EL FORMULARIO
         private void frmInfoMascota_Load(object sender, EventArgs e)
         {
             gbDetalleHistorial.Visible = false;
             cargarDatosMascota();
-            cargarHistorias();
+            cargarHistorial();
         }
 
+        //CUANDO SE DA CLICK EN EL BOTON AGREGAR
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             gbDetalleHistorial.Visible = true;
         }
 
+        //CUANDO SE DA CLICK EN EL BOTON CANCELAR 
         private void btnCancelHist_Click(object sender, EventArgs e)
         {
             limpiarDetalle();
@@ -84,6 +96,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
 
         #endregion
 
+        //CUANDO SE DA CLICK EN EL BOTON EDITAR 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Realmente desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -98,6 +111,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             }
         }
 
+        //CUANDO SE DA CLICK EN EL BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Realmente desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -108,7 +122,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                 if (hc.Eliminar())
                 {
                     MessageBox.Show("¡Registro eliminado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarHistorias();
+                    cargarHistorial();
                 }
                 else
                 {
@@ -117,6 +131,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             }
         }
 
+        //CUANDO SE DA CLICK EN EL BOTON GUARDAR
         private void btnGuardarHist_Click(object sender, EventArgs e)
         {
             //creacion del objeto entidad
@@ -135,7 +150,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                 {
                     MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     gbDetalleHistorial.Visible = false;
-                    cargarHistorias();
+                    cargarHistorial();
                     limpiarDetalle();
                 }
                 else
@@ -149,7 +164,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                 if (hc.Insertar())
                 {
                     MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarHistorias();
+                    cargarHistorial();
                     limpiarDetalle();
                     gbDetalleHistorial.Visible = false;
                 }

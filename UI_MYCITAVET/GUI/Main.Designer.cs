@@ -29,10 +29,10 @@ namespace UI_MYCITAVET.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnminimizar = new System.Windows.Forms.PictureBox();
-            this.btncerrar = new System.Windows.Forms.PictureBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.panelSubMenuConfig = new System.Windows.Forms.Panel();
@@ -74,9 +74,9 @@ namespace UI_MYCITAVET.GUI
             this.contadorCitas = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cronometro = new System.Windows.Forms.Timer(this.components);
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.panelSubMenuConfig.SuspendLayout();
             this.panelSubMenuConsultoria.SuspendLayout();
@@ -98,7 +98,6 @@ namespace UI_MYCITAVET.GUI
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
             this.panelHeader.Controls.Add(this.label1);
             this.panelHeader.Controls.Add(this.btnminimizar);
-            this.panelHeader.Controls.Add(this.btncerrar);
             this.panelHeader.Controls.Add(this.panelLogo);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -122,25 +121,13 @@ namespace UI_MYCITAVET.GUI
             // 
             this.btnminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnminimizar.Image = global::UI_MYCITAVET.Properties.Resources.minus;
-            this.btnminimizar.Location = new System.Drawing.Point(1291, 3);
+            this.btnminimizar.Location = new System.Drawing.Point(1312, 3);
             this.btnminimizar.Name = "btnminimizar";
             this.btnminimizar.Size = new System.Drawing.Size(15, 15);
             this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnminimizar.TabIndex = 19;
             this.btnminimizar.TabStop = false;
             this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
-            // 
-            // btncerrar
-            // 
-            this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btncerrar.Image = global::UI_MYCITAVET.Properties.Resources.cross;
-            this.btncerrar.Location = new System.Drawing.Point(1312, 3);
-            this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(15, 15);
-            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btncerrar.TabIndex = 18;
-            this.btncerrar.TabStop = false;
-            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
             // panelLogo
             // 
@@ -725,6 +712,11 @@ namespace UI_MYCITAVET.GUI
             this.label3.TabIndex = 1;
             this.label3.Text = "CITAS PROGRAMADAS";
             // 
+            // cronometro
+            // 
+            this.cronometro.Interval = 5000;
+            this.cronometro.Tick += new System.EventHandler(this.cronometro_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,12 +733,11 @@ namespace UI_MYCITAVET.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
             this.panelSubMenuConfig.ResumeLayout(false);
             this.panelSubMenuConsultoria.ResumeLayout(false);
@@ -776,7 +767,6 @@ namespace UI_MYCITAVET.GUI
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox btnminimizar;
-        private System.Windows.Forms.PictureBox btncerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Panel panelSubMenuMant;
@@ -818,5 +808,6 @@ namespace UI_MYCITAVET.GUI
         private System.Windows.Forms.Label contadorMasc;
         private System.Windows.Forms.Label contadorUsers;
         private System.Windows.Forms.Label contadorCitas;
+        private System.Windows.Forms.Timer cronometro;
     }
 }

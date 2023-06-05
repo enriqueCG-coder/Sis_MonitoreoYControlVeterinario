@@ -110,6 +110,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelCitas = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.txtMascota = new System.Windows.Forms.TextBox();
             this.btnCancelHist = new System.Windows.Forms.Button();
             this.txtHIni = new System.Windows.Forms.TextBox();
             this.txtHF = new System.Windows.Forms.TextBox();
@@ -132,7 +133,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtMascota = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.plInfoCliente.SuspendLayout();
@@ -971,6 +972,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.label16);
             this.gbInfo.Controls.Add(this.txtMascota);
             this.gbInfo.Controls.Add(this.btnCancelHist);
             this.gbInfo.Controls.Add(this.txtHIni);
@@ -994,6 +996,14 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbInfo.TabIndex = 32;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "DATOS DE LA CITA";
+            // 
+            // txtMascota
+            // 
+            this.txtMascota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMascota.Location = new System.Drawing.Point(151, 187);
+            this.txtMascota.Name = "txtMascota";
+            this.txtMascota.Size = new System.Drawing.Size(200, 20);
+            this.txtMascota.TabIndex = 47;
             // 
             // btnCancelHist
             // 
@@ -1220,13 +1230,15 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.button2.TabIndex = 16;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtMascota
+            // label16
             // 
-            this.txtMascota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMascota.Location = new System.Drawing.Point(151, 187);
-            this.txtMascota.Name = "txtMascota";
-            this.txtMascota.Size = new System.Drawing.Size(200, 20);
-            this.txtMascota.TabIndex = 47;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(74, 191);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 16);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "Mascota:";
             // 
             // frmMascotas
             // 
@@ -1382,5 +1394,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         public System.Windows.Forms.TextBox txtHIni;
         private System.Windows.Forms.Button btnCancelHist;
         public System.Windows.Forms.TextBox txtMascota;
+        private System.Windows.Forms.Label label16;
     }
 }
