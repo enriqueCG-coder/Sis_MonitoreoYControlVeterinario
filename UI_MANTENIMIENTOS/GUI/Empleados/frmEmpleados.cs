@@ -20,7 +20,7 @@ namespace UI_MANTENIMIENTOS.GUI
         }
 
         #region METODOS FORMULARIO EMPLEADOS 
-        
+
         //metodo para llenar el datagridview de empleados
         public void llenarDataGridEmpleados()
         {
@@ -74,6 +74,7 @@ namespace UI_MANTENIMIENTOS.GUI
         //cuando se carga el formulario de empleados
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
+            cbMunicipio.Enabled = false;
             llenarDataGridEmpleados();
         }
 
@@ -103,7 +104,7 @@ namespace UI_MANTENIMIENTOS.GUI
         //cuando se da clic en el boton de editar 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            
+
             if (MessageBox.Show("¿Realmente desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cargarGenero();
@@ -249,39 +250,60 @@ namespace UI_MANTENIMIENTOS.GUI
             emp.IDEmpleado = txtID.Text;
 
             //validar que accion se va a realizar
-            if (txtID.TextLength > 0)
+            if (!string.IsNullOrEmpty(emp.Nombres) && !string.IsNullOrEmpty(emp.Apellidos) && !string.IsNullOrEmpty(emp.FechaNac)
+                && !string.IsNullOrEmpty(emp.Genero) && !string.IsNullOrEmpty(emp.TipoDoc) && !string.IsNullOrEmpty(emp.Documento)
+                && !string.IsNullOrEmpty(emp.Telefono) && emp.IdMunicipio > 0 && !string.IsNullOrEmpty(emp.Direccion))
             {
-                //actualizar
-                if (emp.Actualizar())
+
+                if (txtID.TextLength > 0)
                 {
-                    MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    pnlAddEmpleados.Visible = false;
-                    llenarDataGridEmpleados();
+
+                    //actualizar
+                    if (emp.Actualizar())
+                    {
+                        MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cbMunicipio.Enabled = false;
+                        pnlAddEmpleados.Visible = false;
+                        llenarDataGridEmpleados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //insertar
+                    if (emp.Insertar())
+                    {
+
+                        MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cbMunicipio.Enabled = false;
+                        llenarDataGridEmpleados();
+                        pnlAddEmpleados.Visible = false;
+
+
+
+
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             else
             {
-                //insertar
-                if (emp.Insertar())
-                {
-                    MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    llenarDataGridEmpleados();
-                    pnlAddEmpleados.Visible = false;
-                }
-                else
-                {
-                    MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Complete los requeridos vacíos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         //cuando se le da en el boton cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            cbMunicipio.Enabled = false;
             pnlAddEmpleados.Visible = false;
             limpiar();
         }
@@ -289,6 +311,7 @@ namespace UI_MANTENIMIENTOS.GUI
         //cuando se selecciona un registro de departamento 
         private void cbDepto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbMunicipio.Enabled = true;
             obtenerMunicipios();
         }
         #endregion
@@ -304,6 +327,8 @@ namespace UI_MANTENIMIENTOS.GUI
         #endregion
 
         #region VALIDACIONES DE TEXTBOX 
+
+        #region NOMBRE
         //VALIDA SI LA PALABRA LLEVA TILDE 
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -317,43 +342,168 @@ namespace UI_MANTENIMIENTOS.GUI
         //VALIDA LA CANTIDAD DE CARACTERES DEL TEXTBOX NOMBRES
         private void txtNombres_TextChanged(object sender, EventArgs e)
         {
-            // Limitar la longitud del TextBox a 25 caracteres
-            if (txtNombres.Text.Length > 25)
+            int maxLength = 30; // Máximo número de caracteres permitidos
+
+            if (txtNombres.Text.Length > maxLength)
             {
-                txtNombres.Text = txtNombres.Text.Substring(0, 25);
-                txtNombres.SelectionStart = 25; // Establecer la posición del cursor al final
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtNombres.Text = txtNombres.Text.Substring(0, maxLength);
+                txtNombres.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+        #endregion
+
+        #region APELLIDOS
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
             }
         }
 
-        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellidos_TextChanged(object sender, EventArgs e)
         {
+            int maxLength = 30; // Máximo número de caracteres permitidos
 
+            if (txtApellidos.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtApellidos.Text = txtApellidos.Text.Substring(0, maxLength);
+                txtApellidos.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
         }
+        #endregion
 
+        #region DOCUMENTO
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Cancelar el evento para evitar que se ingrese el carácter no deseado
+                e.Handled = true;
+            }
         }
 
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
         {
+            int maxLength = 9; // Máximo número de caracteres permitidos
 
+            if (txtDocumento.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtDocumento.Text = txtDocumento.Text.Substring(0, maxLength);
+                txtDocumento.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
         }
-
-        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void rtxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-
 
         #endregion
 
-        
+        #region TELEFONO
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Cancelar el evento para evitar que se ingrese el carácter no deseado
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 9; // Máximo número de caracteres permitidos
+
+            if (txtTelefono.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtTelefono.Text = txtTelefono.Text.Substring(0, maxLength);
+                txtTelefono.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+        #endregion
+
+        #region CORREO
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 75; // Máximo número de caracteres permitidos
+
+            if (txtCorreo.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtCorreo.Text = txtCorreo.Text.Substring(0, maxLength);
+                txtCorreo.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        #endregion
+
+        #region DIRECCION
+        private void rtxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+
+        private void rtxtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 250; // Máximo número de caracteres permitidos
+
+            if (rtxtDireccion.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                rtxtDireccion.Text = rtxtDireccion.Text.Substring(0, maxLength);
+                rtxtDireccion.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+        #endregion
+
+        //termina region de validaciones
+        #endregion
+
+
+
+        private void dtpFechaNac_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtDocumento.Enabled = true;
+        }
     }
 }

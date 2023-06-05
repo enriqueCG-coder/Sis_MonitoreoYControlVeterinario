@@ -31,6 +31,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMascotas));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -110,6 +111,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelCitas = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtMascota = new System.Windows.Forms.TextBox();
             this.btnCancelHist = new System.Windows.Forms.Button();
             this.txtHIni = new System.Windows.Forms.TextBox();
@@ -133,7 +135,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.plInfoCliente.SuspendLayout();
@@ -527,6 +528,8 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(245, 31);
+            this.txtBuscar.Visible = false;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // lblBuscar
             // 
@@ -535,11 +538,13 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(114, 28);
             this.lblBuscar.Text = "Buscar Mascota";
+            this.lblBuscar.Visible = false;
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator5.Visible = false;
             // 
             // dgvMascota
             // 
@@ -997,9 +1002,20 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "DATOS DE LA CITA";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(74, 191);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 16);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "Mascota:";
+            // 
             // txtMascota
             // 
             this.txtMascota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMascota.Enabled = false;
             this.txtMascota.Location = new System.Drawing.Point(151, 187);
             this.txtMascota.Name = "txtMascota";
             this.txtMascota.Size = new System.Drawing.Size(200, 20);
@@ -1018,6 +1034,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.btnCancelHist.TabIndex = 46;
             this.btnCancelHist.Text = "Cancelar";
             this.btnCancelHist.UseVisualStyleBackColor = false;
+            this.btnCancelHist.Click += new System.EventHandler(this.btnCancelHist_Click);
             // 
             // txtHIni
             // 
@@ -1081,6 +1098,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // txtCorrelativo
             // 
             this.txtCorrelativo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCorrelativo.Enabled = false;
             this.txtCorrelativo.Location = new System.Drawing.Point(152, 26);
             this.txtCorrelativo.Name = "txtCorrelativo";
             this.txtCorrelativo.Size = new System.Drawing.Size(113, 20);
@@ -1230,16 +1248,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.button2.TabIndex = 16;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(74, 191);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 16);
-            this.label16.TabIndex = 48;
-            this.label16.Text = "Mascota:";
-            // 
             // frmMascotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1253,6 +1261,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMascotas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignación de Mascotas";

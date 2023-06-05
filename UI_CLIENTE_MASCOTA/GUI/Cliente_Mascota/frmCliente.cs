@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Forms;
@@ -296,36 +297,46 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             cli.Telefono = txtTelefono.Text;
             cli.IDCliente = txtID.Text;
 
-            //validar que accion se va a realizar
-            if (txtID.TextLength > 0)
+
+            if (!string.IsNullOrEmpty(cli.Nombres) && !string.IsNullOrEmpty(cli.Apellidos) && !string.IsNullOrEmpty(cli.FechaNac)
+                && !string.IsNullOrEmpty(cli.Genero) && !string.IsNullOrEmpty(cli.TipoDoc) && !string.IsNullOrEmpty(cli.Documento)
+                && !string.IsNullOrEmpty(cli.Telefono) && cli.IdMunicipio > 0 && !string.IsNullOrEmpty(cli.Direccion))
             {
-                //actualizar
-                if (cli.Actualizar())
+                //validar que accion se va a realizar
+                if (txtID.TextLength > 0)
                 {
-                    MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    plCliente.Visible = false;
-                    cargarDatos();
-                    limpiar();
+                    //actualizar
+                    if (cli.Actualizar())
+                    {
+                        MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        plCliente.Visible = false;
+                        cargarDatos();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //insertar
+                    if (cli.Insertar())
+                    {
+                        MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargarDatos();
+                        limpiar();
+                        plCliente.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             else
             {
-                //insertar
-                if (cli.Insertar())
-                {
-                    MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarDatos();
-                    limpiar();
-                    plCliente.Visible = false;
-                }
-                else
-                {
-                    MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Complete los requeridos vacíos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -338,7 +349,163 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         #endregion
 
 
+        #region METODOS DE VALIDACION
+        //PERMITE VALIDAR SI UNA VOCAL LLEVA TILDE 
+        private bool IsTilde(char c)
+        {
+            // Verificar si el carácter es una tilde (á, é, í, ó, ú, Á, É, Í, Ó, Ú)
+            return Regex.IsMatch(c.ToString(), "[áéíóúÁÉÍÓÚ]");
+        }
+        #endregion
 
+        #region VALIDACIONES DE TEXTBOX 
 
+        #endregion
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 30; // Máximo número de caracteres permitidos
+
+            if (txtNombres.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtNombres.Text = txtNombres.Text.Substring(0, maxLength);
+                txtNombres.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+        private void txtApellidos_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 30; // Máximo número de caracteres permitidos
+
+            if (txtApellidos.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtApellidos.Text = txtApellidos.Text.Substring(0, maxLength);
+                txtApellidos.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Cancelar el evento para evitar que se ingrese el carácter no deseado
+                e.Handled = true;
+            }
+        }
+
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 9; // Máximo número de caracteres permitidos
+
+            if (txtDocumento.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtDocumento.Text = txtDocumento.Text.Substring(0, maxLength);
+                txtDocumento.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Cancelar el evento para evitar que se ingrese el carácter no deseado
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 9; // Máximo número de caracteres permitidos
+
+            if (txtTelefono.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtTelefono.Text = txtTelefono.Text.Substring(0, maxLength);
+                txtTelefono.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 75; // Máximo número de caracteres permitidos
+
+            if (txtCorreo.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtCorreo.Text = txtCorreo.Text.Substring(0, maxLength);
+                txtCorreo.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void rtxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back && !IsTilde(e.KeyChar))
+            {
+                e.Handled = true; // Rechazar la entrada de la tecla
+            }
+        }
+
+        private void rtxtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 250; // Máximo número de caracteres permitidos
+
+            if (rtxtDireccion.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                rtxtDireccion.Text = rtxtDireccion.Text.Substring(0, maxLength);
+                rtxtDireccion.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
     }
 }

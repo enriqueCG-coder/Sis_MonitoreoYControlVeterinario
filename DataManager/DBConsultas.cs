@@ -82,6 +82,40 @@ namespace DataManager
 
         #region CONSULTAS SIN PARAMETROS
 
+        //OBTIENE LOS DEPARTAMENTOS
+        public static DataTable getDeptos()
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT Id, Nombre FROM Departamento order by Nombre asc;";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
+        //OBTIENE LOS MUNICIPIOS
+        public static DataTable getMunicipios()
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT m.Id, m.Nombre,m.IdDepartamento, d.Nombre as Departamento FROM Municipio m INNER JOIN Departamento d on m.IdDepartamento = d.Id order by d.Nombre asc;";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
         //OBTIENE LA TABLA ROLES 
         public static DataTable ROLES()
         {
@@ -159,16 +193,104 @@ namespace DataManager
         }
 
 
+        //OBTIENE LA TABLA DE CITAS POR FECHA
+        public static DataTable getCitasPorFecha(string fecha)
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, concat(c.TipoDoc, '-', c.Documento) as 'Documento de Cliente', ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
+		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
+                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre 
+		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
+                                            INNER JOIN Razas r on m.IDRaza = r.IDraza 
+		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente WHERE Fecha = '"+fecha+"';";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
         //OBTIENE LA TABLA DE CITAS
         public static DataTable getCitasAgendadas()
         {
             DataTable Resultado = new DataTable();
-            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
+            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, concat(c.TipoDoc, '-', c.Documento) as 'Documento de Cliente', ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
 		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
-                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre, concat(c.TipoDoc, '-', c.Documento) as Documento 
+                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre 
 		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
                                             INNER JOIN Razas r on m.IDRaza = r.IDraza 
-		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente;";
+		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente WHERE Estado = 'AGENDADA';";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
+        //OBTIENE LA TABLA DE CITAS EN PROCESO
+        public static DataTable getCitasProcesadas()
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, concat(c.TipoDoc, '-', c.Documento) as 'Documento de Cliente', ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
+		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
+                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre 
+		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
+                                            INNER JOIN Razas r on m.IDRaza = r.IDraza 
+		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente WHERE Estado = 'EN PROCESO';";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
+        //OBTIENE LA TABLA DE CITAS FINALIZADAS
+        public static DataTable getCitasFinalizadas()
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, concat(c.TipoDoc, '-', c.Documento) as 'Documento de Cliente', ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
+		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
+                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre 
+		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
+                                            INNER JOIN Razas r on m.IDRaza = r.IDraza 
+		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente WHERE Estado = 'FINALIZADA';";
+            DBOperacion Consultor = new DBOperacion();
+            try
+            {
+                Resultado = Consultor.Consultar(Sentencia);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
+        //OBTIENE LA TABLA DE CITAS CANCELADAS
+        public static DataTable getCitasCanceladas()
+        {
+            DataTable Resultado = new DataTable();
+            String Sentencia = @"SELECT  ci.IDcita, ci.Correlativo_Cita as Correlativo, concat(c.TipoDoc, '-', c.Documento) as 'Documento de Cliente', ci.Fecha, ci.Hora_Inicio, ci.Hora_Fin, ci.Motivo, ci.Estado, 
+		                                    ci.IDMascota, m.Nombre as Mascota, m.Genero, r.Raza, c.IDCliente, 
+                                            concat(c.Nombres, ' ', c.Apellidos) as Nombre 
+		                                    FROM citas ci INNER JOIN mascotas m ON m.IDMascota = ci.IDMascota 
+                                            INNER JOIN Razas r on m.IDRaza = r.IDraza 
+		                                    INNER JOIN clientes c on c.IDCliente = m.IDCliente WHERE Estado = 'CANCELADA';";
             DBOperacion Consultor = new DBOperacion();
             try
             {

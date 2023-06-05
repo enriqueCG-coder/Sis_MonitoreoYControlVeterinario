@@ -31,14 +31,20 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInfoMascota));
             this.panelIzquierdo = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblMascota = new System.Windows.Forms.Label();
             this.plInfoCliente = new System.Windows.Forms.Panel();
             this.gbDetalleHistorial = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtIDProd = new System.Windows.Forms.TextBox();
+            this.btnProducto = new System.Windows.Forms.Button();
             this.btnCancelHist = new System.Windows.Forms.Button();
             this.btnGuardarHist = new System.Windows.Forms.Button();
-            this.txtMedida = new System.Windows.Forms.TextBox();
             this.dtFechaHist = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPeso = new System.Windows.Forms.TextBox();
@@ -76,12 +82,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblEmpleado = new System.Windows.Forms.Label();
-            this.btnProducto = new System.Windows.Forms.Button();
-            this.txtIDProd = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.IDHistorial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MascotaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,7 +153,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbDetalleHistorial.Controls.Add(this.btnProducto);
             this.gbDetalleHistorial.Controls.Add(this.btnCancelHist);
             this.gbDetalleHistorial.Controls.Add(this.btnGuardarHist);
-            this.gbDetalleHistorial.Controls.Add(this.txtMedida);
             this.gbDetalleHistorial.Controls.Add(this.dtFechaHist);
             this.gbDetalleHistorial.Controls.Add(this.label1);
             this.gbDetalleHistorial.Controls.Add(this.txtPeso);
@@ -169,6 +168,67 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.gbDetalleHistorial.TabIndex = 18;
             this.gbDetalleHistorial.TabStop = false;
             this.gbDetalleHistorial.Text = "DETALLE DE HISTORIA";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(96, 90);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(187, 21);
+            this.textBox2.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 17);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Cantidad:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(96, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 21);
+            this.textBox1.TabIndex = 38;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 17);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Producto:";
+            // 
+            // txtIDProd
+            // 
+            this.txtIDProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIDProd.Location = new System.Drawing.Point(56, 28);
+            this.txtIDProd.Name = "txtIDProd";
+            this.txtIDProd.Size = new System.Drawing.Size(30, 21);
+            this.txtIDProd.TabIndex = 36;
+            this.txtIDProd.Visible = false;
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.Color.White;
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProducto.Location = new System.Drawing.Point(96, 21);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(188, 30);
+            this.btnProducto.TabIndex = 35;
+            this.btnProducto.Text = "Seleccionar producto";
+            this.btnProducto.UseVisualStyleBackColor = false;
             // 
             // btnCancelHist
             // 
@@ -200,15 +260,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.btnGuardarHist.UseVisualStyleBackColor = false;
             this.btnGuardarHist.Click += new System.EventHandler(this.btnGuardarHist_Click);
             // 
-            // txtMedida
-            // 
-            this.txtMedida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMedida.Enabled = false;
-            this.txtMedida.Location = new System.Drawing.Point(156, 192);
-            this.txtMedida.Name = "txtMedida";
-            this.txtMedida.Size = new System.Drawing.Size(54, 21);
-            this.txtMedida.TabIndex = 32;
-            // 
             // dtFechaHist
             // 
             this.dtFechaHist.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -234,6 +285,8 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(54, 21);
             this.txtPeso.TabIndex = 17;
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtPeso_TextChanged);
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // txtDiagnostico
             // 
@@ -243,6 +296,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(188, 42);
             this.txtDiagnostico.TabIndex = 16;
+            this.txtDiagnostico.TextChanged += new System.EventHandler(this.txtDiagnostico_TextChanged);
             // 
             // label3
             // 
@@ -618,67 +672,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.lblEmpleado.TabIndex = 0;
             this.lblEmpleado.Text = "HISTORIAL CLINICO ";
             // 
-            // btnProducto
-            // 
-            this.btnProducto.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.ForeColor = System.Drawing.Color.White;
-            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProducto.Location = new System.Drawing.Point(96, 21);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(188, 30);
-            this.btnProducto.TabIndex = 35;
-            this.btnProducto.Text = "Seleccionar producto";
-            this.btnProducto.UseVisualStyleBackColor = false;
-            // 
-            // txtIDProd
-            // 
-            this.txtIDProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIDProd.Location = new System.Drawing.Point(56, 28);
-            this.txtIDProd.Name = "txtIDProd";
-            this.txtIDProd.Size = new System.Drawing.Size(30, 21);
-            this.txtIDProd.TabIndex = 36;
-            this.txtIDProd.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(96, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 21);
-            this.textBox1.TabIndex = 38;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 17);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Producto:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(96, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 21);
-            this.textBox2.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 17);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Cantidad:";
-            // 
             // IDHistorial
             // 
             this.IDHistorial.DataPropertyName = "IDHistorial";
@@ -708,7 +701,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // Peso
             // 
             this.Peso.DataPropertyName = "Peso";
-            this.Peso.HeaderText = "Peso";
+            this.Peso.HeaderText = "Peso en Libras";
             this.Peso.Name = "Peso";
             // 
             // Id_Producto
@@ -726,6 +719,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelIzquierdo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInfoMascota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informe clínico de mascota";
@@ -793,7 +787,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.DateTimePicker dtFechaHist;
-        public System.Windows.Forms.TextBox txtMedida;
         private System.Windows.Forms.Button btnCancelHist;
         private System.Windows.Forms.Button btnGuardarHist;
         private System.Windows.Forms.StatusStrip statusStrip1;

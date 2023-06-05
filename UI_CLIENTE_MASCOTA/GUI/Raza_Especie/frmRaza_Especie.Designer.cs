@@ -31,6 +31,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Raza_Especie
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRaza_Especie));
             this.panelRazas = new System.Windows.Forms.Panel();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblEmpleado = new System.Windows.Forms.Label();
@@ -345,8 +346,8 @@ namespace UI_CLIENTE_MASCOTA.GUI.Raza_Especie
             this.lblBuscar.ForeColor = System.Drawing.Color.White;
             this.lblBuscar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.buscar;
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(90, 28);
-            this.lblBuscar.Text = "Buscar raza";
+            this.lblBuscar.Size = new System.Drawing.Size(66, 28);
+            this.lblBuscar.Text = "Buscar";
             // 
             // toolStripSeparator5
             // 
@@ -362,6 +363,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Raza_Especie
             this.Controls.Add(this.dgvRaza);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRaza_Especie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignación de raza";

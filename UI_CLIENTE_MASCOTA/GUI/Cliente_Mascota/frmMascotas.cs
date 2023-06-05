@@ -121,30 +121,6 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
 
         }
 
-        private void BuscarMascota()
-        {
-            //String Buscar = txtBuscar.Text;
-            //DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
-            //DataTable Resultado = new DataTable();
-            //Resultado = Operacion.Consultar("SELECT E.IDEmpleado, E.Nombres, " +
-            //                                "E.Apellidos, E.FechaNac, E.Genero," +
-            //                                "D.Nombre as Departamento, M.Nombre as Municipio, " +
-            //                                "E.Direccion, E.TipoDoc, E.Documento, " +
-            //                                "E.Correo, E.Telefono, D.Id, E.IdMunicipio FROM Empleados as E " +
-            //                                "INNER JOIN Municipio as M " +
-            //                                "ON M.Id = E.IdMunicipio " +
-            //                                "INNER JOIN Departamento as D " +
-            //                                "ON D.Id = M.IdDepartamento " +
-            //                                "WHERE E.Nombres LIKE '%" + Buscar + "%' OR " +
-            //                                "E.Apellidos LIKE '%" + Buscar + "%' OR " +
-            //                                "E.Documento LIKE '%" + Buscar + "%';");
-            //dgvEmpleados.DataSource = Resultado;
-
-            //dgvEmpleados.Columns["IDEmpleado"].Visible = false;
-            //dgvEmpleados.Columns["Id"].Visible = false;
-            //dgvEmpleados.Columns["IdMunicipio"].Visible = false;
-        }
-
         //METODO PARA CARGAR LAS MASCOTAS SEGUN EL ID DEL CLIENTE EN EL DATAGRIDVIEW
         private void cargarMascotas()
         {
@@ -281,9 +257,9 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             }
             else if (e.ColumnIndex == dgvMascota.Columns["RealizarCita"].Index && e.RowIndex >= 0)
             {
-                
+
                 panelCitas.Visible = true;
-                
+
                 cargarTipoCita();
                 DataGridViewRow filaSeleccionada = dgvMascota.Rows[e.RowIndex];
                 string idM = filaSeleccionada.Cells["IDMascota"].Value.ToString();
@@ -295,7 +271,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                 string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 string cadenaGenerada = GenerarCadenaAleatoria(random, caracteres, 6);
                 //se le pasa la cadena generada al textbox correlativo
-                txtCorrelativo.Text = "#"+"-"+cadenaGenerada;
+                txtCorrelativo.Text = "#" + "-" + cadenaGenerada;
             }
         }
 
@@ -313,7 +289,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         //CUANDO SE DA CLICK EN EL BOTON DE GUARDAR 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
             //creacion del objeto entidad
             CLS.Mascotas m = new CLS.Mascotas();
             m.Nombre = txtNombre.Text;
@@ -325,38 +301,47 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             m.IDCliente = txtIDCliente.Text;
             m.IDMascota = txtID.Text;
 
-            //validar que accion se va a realizar
-            if (txtID.TextLength > 0)
+            if (!string.IsNullOrEmpty(m.Nombre) && !string.IsNullOrEmpty(m.Color) && !string.IsNullOrEmpty(m.Rasgo)
+                && !string.IsNullOrEmpty(m.FechaNac) && !string.IsNullOrEmpty(m.Genero) && m.IDRaza > 0)
             {
-                //actualizar
-                if (m.Actualizar())
+                //validar que accion se va a realizar
+                if (txtID.TextLength > 0)
                 {
-                    MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    plMascota.Visible = false;
-                    cargarMascotas();
-                    limpiar();
+                    //actualizar
+                    if (m.Actualizar())
+                    {
+                        MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        plMascota.Visible = false;
+                        cargarMascotas();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //insertar
+                    if (m.Insertar())
+                    {
+                        MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargarMascotas();
+                        limpiar();
+                        plMascota.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             else
             {
-                //insertar
-                if (m.Insertar())
-                {
-                    MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarMascotas();
-                    limpiar();
-                    plMascota.Visible = false;
-                }
-                else
-                {
-                    MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Complete los campos vacío", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         //PARA CERRAR EL PANEL DE MASCOTAS 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -376,6 +361,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             {
                 UI_CLIENTE_MASCOTA.GUI.Raza_Especie.frmRaza_Especie f = new UI_CLIENTE_MASCOTA.GUI.Raza_Especie.frmRaza_Especie();
                 f.ShowDialog();
+                f.CargarDatos();
             }
             catch (Exception)
             {
@@ -386,6 +372,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         private void btncerrar_Click(object sender, EventArgs e)
         {
             panelCitas.Visible = false;
+            limpiarCita();
         }
 
 
@@ -421,7 +408,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
                                             " a " + hFinal + ". ");
 
 
-            
+
 
             // Deshabilitar las horas desde la hora seleccionada hasta la hora final
             //for (int i = comboBoxInicio.Items.Count - 1; i >= 0; i--)
@@ -479,22 +466,14 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
         {
 
         }
-        
+
 
         private void btnGuardarCita_Click(object sender, EventArgs e)
         {
-            //    string cbCita = Convert.ToString(cbTipoCita.SelectedItem);
-            //    string dia = Convert.ToString(datePickerFecha.Value.Day);
-            //    string mes = Convert.ToString(datePickerFecha.Value.Month);
-            //    string anio = Convert.ToString(datePickerFecha.Value.Year);
-            //    string hInicio = Convert.ToString(datePickerFecha.Value.Year);
-            //    DateTime horaSeleccionada = (DateTime)comboBoxInicio.SelectedItem;
-            //    string hSeleccionada = horaSeleccionada.ToString("hh");
-            //    txtCorrelativo.Text = "CC-" + cbCita + "-" + dia + mes + anio + "-" + hSeleccionada + "";
             //credenciales de correo
             string remitente = "SysVeterinaria@gmail.com";
             string pass = "_SysVeterinaria987";
-            string destinatario = txtCorreo.Text; 
+            string destinatario = txtCorreo.Text;
             String fecha = Convert.ToString(datePickerFecha.Value.ToString("dd/MM/yyyy"));
 
             // Crear el cliente SMTP con la información del servidor
@@ -505,7 +484,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             // Crear el mensaje de correo
             MailMessage mensaje = new MailMessage(remitente, destinatario);
             mensaje.Subject = "Notificación Veterinaria";
-            mensaje.Body = "Correlativo "+ txtCorrelativo.Text + ". La cita de su mascota "+ txtMascota.Text +" ha sido agendada para el día "+ fecha+" " + txtFin.Text + ". Favor se le solicita ser puntual.";
+            mensaje.Body = "Correlativo " + txtCorrelativo.Text + ". La cita de su mascota " + txtMascota.Text + " ha sido agendada para el día " + fecha + " " + txtFin.Text + ". Favor se le solicita ser puntual.";
 
             //creacion del objeto entidad
             CLS.Cita c = new CLS.Cita();
@@ -576,5 +555,50 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             return result;
         }
 
+        private void btnCancelHist_Click(object sender, EventArgs e)
+        {
+            limpiarCita();
+            panelCitas.Visible = false;
+        }
+
+        private void limpiarCita()
+        {
+            txtCorrelativo.Clear();
+            cbTipoCita.SelectedIndex = 0;
+            datePickerFecha.Value = DateTime.Now;
+            txtHIni.Clear();
+            txtHF.Clear();
+            txtFin.Clear();
+            comboBoxInicio.SelectedIndex = -1;
+            txtMascota.Clear();
+            txtIDCita.Clear();
+            txtIDMcita.Clear();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+                cargarMascotas();
+            }
+            else
+            {
+                Buscar();
+            }
+        }
+
+        //PARA BUSCAR EN EL TXTBUSCAR
+        private void Buscar()
+        {
+            String Buscar = txtBuscar.Text;
+            DataManager.DBOperacion Operacion = new DataManager.DBOperacion();
+            DataTable Resultado = new DataTable();
+            Resultado = Operacion.Consultar("SELECT m.IDMascota, m.Nombre, m.Genero, m.IDRaza,r.Raza, r.IDEspecie, e.Especie, m.Color, m.Rasgo, m.FechaNac " +
+                                            "FROM mascotas m " +
+                                            "INNER JOIN Razas r ON m.IDRaza = r.IDRaza " +
+                                            "INNER JOIN Especies e ON r.IDEspecie = e.IDEspecie WHERE IDCliente = " + IDCliente + " WHERE m.Nombre LIKE '%" + Buscar + "%' OR e.Especie LIKE '%" + Buscar + "%' ;");
+            dgvMascota.DataSource = Resultado;
+
+        }
     }
 }

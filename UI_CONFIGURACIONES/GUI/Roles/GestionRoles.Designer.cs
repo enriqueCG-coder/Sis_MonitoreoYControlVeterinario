@@ -31,6 +31,7 @@ namespace UI_CONFIGURACIONES.GUI.Roles
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionRoles));
             this.dgvRoles = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -261,7 +262,7 @@ namespace UI_CONFIGURACIONES.GUI.Roles
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackgroundImage = global::UI_CONFIGURACIONES.Properties.Resources.cross1;
+            this.btnCancelar.BackgroundImage = global::UI_CONFIGURACIONES.Properties.Resources.cross;
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Location = new System.Drawing.Point(17, 20);
@@ -340,6 +341,7 @@ namespace UI_CONFIGURACIONES.GUI.Roles
             this.Controls.Add(this.dgvRoles);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GestionRoles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionRoles";

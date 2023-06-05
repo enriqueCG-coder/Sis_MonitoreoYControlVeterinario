@@ -80,3 +80,5 @@ C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\
 C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\obj\Debug\UI_CONFIGURACIONES.csproj.CopyComplete
 C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\obj\Debug\UI_CONFIGURACIONES.dll
 C:\Users\enriq\Source\Repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\obj\Debug\UI_CONFIGURACIONES.pdb
+C:\Users\enriq\source\repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\obj\Debug\UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmDepartamentos.resources
+C:\Users\enriq\source\repos\Sis_MonitoreoYControlVeterinario\UI_CONFIGURACIONES\obj\Debug\UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmMunicipios.resources

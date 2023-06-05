@@ -41,13 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAT\ReporteClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteClientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CLS\" />
-    <Folder Include="DAT\" />
     <Folder Include="GUI\" />
     <Folder Include="REP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAT\ReporteClientes.xsc">
+      <DependentUpon>ReporteClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DAT\ReporteClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteClientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAT\ReporteClientes.xss">
+      <DependentUpon>ReporteClientes.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS\Agenda.cs" />
     <Compile Include="GUI\AGENDA\AgendaCitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,9 +57,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CLS\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="GUI\AGENDA\AgendaCitas.resx">
       <DependentUpon>AgendaCitas.cs</DependentUpon>
@@ -96,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconologo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

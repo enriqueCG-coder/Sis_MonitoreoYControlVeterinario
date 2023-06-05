@@ -75,6 +75,8 @@ namespace UI_MYCITAVET.GUI
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cronometro = new System.Windows.Forms.Timer(this.components);
+            this.btnDepartamentos = new System.Windows.Forms.Button();
+            this.btnMunicipios = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
@@ -168,7 +170,7 @@ namespace UI_MYCITAVET.GUI
             this.panelSubMenuConfig.Controls.Add(this.btnClasificaciones);
             this.panelSubMenuConfig.Controls.Add(this.btnRoles);
             this.panelSubMenuConfig.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuConfig.Location = new System.Drawing.Point(0, 524);
+            this.panelSubMenuConfig.Location = new System.Drawing.Point(0, 604);
             this.panelSubMenuConfig.Name = "panelSubMenuConfig";
             this.panelSubMenuConfig.Size = new System.Drawing.Size(215, 187);
             this.panelSubMenuConfig.TabIndex = 11;
@@ -253,7 +255,7 @@ namespace UI_MYCITAVET.GUI
             this.btnConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguraciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguraciones.Location = new System.Drawing.Point(0, 479);
+            this.btnConfiguraciones.Location = new System.Drawing.Point(0, 559);
             this.btnConfiguraciones.Name = "btnConfiguraciones";
             this.btnConfiguraciones.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConfiguraciones.Size = new System.Drawing.Size(215, 45);
@@ -271,7 +273,7 @@ namespace UI_MYCITAVET.GUI
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 711);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 791);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(215, 33);
@@ -286,7 +288,7 @@ namespace UI_MYCITAVET.GUI
             this.panelSubMenuConsultoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(87)))), ((int)(((byte)(165)))));
             this.panelSubMenuConsultoria.Controls.Add(this.btnAgenda);
             this.panelSubMenuConsultoria.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuConsultoria.Location = new System.Drawing.Point(0, 407);
+            this.panelSubMenuConsultoria.Location = new System.Drawing.Point(0, 487);
             this.panelSubMenuConsultoria.Name = "panelSubMenuConsultoria";
             this.panelSubMenuConsultoria.Size = new System.Drawing.Size(215, 72);
             this.panelSubMenuConsultoria.TabIndex = 8;
@@ -317,7 +319,7 @@ namespace UI_MYCITAVET.GUI
             this.btnConsultoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConsultoria.Location = new System.Drawing.Point(0, 362);
+            this.btnConsultoria.Location = new System.Drawing.Point(0, 442);
             this.btnConsultoria.Name = "btnConsultoria";
             this.btnConsultoria.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConsultoria.Size = new System.Drawing.Size(215, 45);
@@ -330,6 +332,8 @@ namespace UI_MYCITAVET.GUI
             // pnlSubMenuCliMasc
             // 
             this.pnlSubMenuCliMasc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(87)))), ((int)(((byte)(165)))));
+            this.pnlSubMenuCliMasc.Controls.Add(this.btnMunicipios);
+            this.pnlSubMenuCliMasc.Controls.Add(this.btnDepartamentos);
             this.pnlSubMenuCliMasc.Controls.Add(this.btnProductos);
             this.pnlSubMenuCliMasc.Controls.Add(this.btnRazas);
             this.pnlSubMenuCliMasc.Controls.Add(this.btnEspecies);
@@ -337,7 +341,7 @@ namespace UI_MYCITAVET.GUI
             this.pnlSubMenuCliMasc.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuCliMasc.Location = new System.Drawing.Point(0, 181);
             this.pnlSubMenuCliMasc.Name = "pnlSubMenuCliMasc";
-            this.pnlSubMenuCliMasc.Size = new System.Drawing.Size(215, 181);
+            this.pnlSubMenuCliMasc.Size = new System.Drawing.Size(215, 261);
             this.pnlSubMenuCliMasc.TabIndex = 6;
             // 
             // btnProductos
@@ -717,6 +721,42 @@ namespace UI_MYCITAVET.GUI
             this.cronometro.Interval = 5000;
             this.cronometro.Tick += new System.EventHandler(this.cronometro_Tick);
             // 
+            // btnDepartamentos
+            // 
+            this.btnDepartamentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(87)))), ((int)(((byte)(165)))));
+            this.btnDepartamentos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDepartamentos.FlatAppearance.BorderSize = 0;
+            this.btnDepartamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepartamentos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDepartamentos.Location = new System.Drawing.Point(0, 160);
+            this.btnDepartamentos.Name = "btnDepartamentos";
+            this.btnDepartamentos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnDepartamentos.Size = new System.Drawing.Size(215, 40);
+            this.btnDepartamentos.TabIndex = 7;
+            this.btnDepartamentos.Text = "Departamentos";
+            this.btnDepartamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepartamentos.UseVisualStyleBackColor = false;
+            this.btnDepartamentos.Click += new System.EventHandler(this.btnDepartamentos_Click);
+            // 
+            // btnMunicipios
+            // 
+            this.btnMunicipios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(87)))), ((int)(((byte)(165)))));
+            this.btnMunicipios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMunicipios.FlatAppearance.BorderSize = 0;
+            this.btnMunicipios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMunicipios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMunicipios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMunicipios.Location = new System.Drawing.Point(0, 200);
+            this.btnMunicipios.Name = "btnMunicipios";
+            this.btnMunicipios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnMunicipios.Size = new System.Drawing.Size(215, 40);
+            this.btnMunicipios.TabIndex = 8;
+            this.btnMunicipios.Text = "Municipios";
+            this.btnMunicipios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMunicipios.UseVisualStyleBackColor = false;
+            this.btnMunicipios.Click += new System.EventHandler(this.btnMunicipios_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,5 +849,7 @@ namespace UI_MYCITAVET.GUI
         private System.Windows.Forms.Label contadorUsers;
         private System.Windows.Forms.Label contadorCitas;
         private System.Windows.Forms.Timer cronometro;
+        private System.Windows.Forms.Button btnDepartamentos;
+        private System.Windows.Forms.Button btnMunicipios;
     }
 }

@@ -31,6 +31,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Especie
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEspecie));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -167,8 +168,8 @@ namespace UI_CLIENTE_MASCOTA.GUI.Especie
             this.lblBuscar.ForeColor = System.Drawing.Color.White;
             this.lblBuscar.Image = global::UI_CLIENTE_MASCOTA.Properties.Resources.buscar;
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(108, 28);
-            this.lblBuscar.Text = "Buscar Especie";
+            this.lblBuscar.Size = new System.Drawing.Size(66, 28);
+            this.lblBuscar.Text = "Buscar";
             // 
             // toolStripSeparator5
             // 
@@ -340,6 +341,7 @@ namespace UI_CLIENTE_MASCOTA.GUI.Especie
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEspecie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEspecie";

@@ -17,13 +17,7 @@ namespace UI_MYCITAVET.CLS
 
             return Resultado;
         }
-        //private Boolean Prueba()
-        //{
-        //    Boolean Resultado = true;
-        //    Form1 f = new Form1();
-        //    f.ShowDialog();
-        //    return Resultado;
-        //}
+
         private Boolean Login()
         {
             Boolean Resultado = true;
@@ -49,7 +43,9 @@ namespace UI_MYCITAVET.CLS
 
         public AppManager()
         {
-            while (true)
+            bool shouldExit = false; // Variable de control para indicar si se debe salir de la aplicación
+
+            while (!shouldExit)
             {
                 if (Splash())
                 {
@@ -63,10 +59,22 @@ namespace UI_MYCITAVET.CLS
                         {
                             f.Dispose(); // Libera los recursos del formulario principal
                         }
+                        else if (f.DialogResult == DialogResult.No)
+                        {
+                            shouldExit = true; // Establece la variable de control para salir de la aplicación
+                        }
                     }
                 }
             }
+
+            // Aquí puedes realizar acciones de limpieza o liberar recursos antes de salir completamente de la aplicación
+            // ...
+
+            // Salida final de la aplicación
+            Application.Exit();
         }
 
     }
+
+
 }

@@ -83,34 +83,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\nuevo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\atras.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cancelar1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\siguiente.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cross.png" />
@@ -122,25 +101,10 @@
     <None Include="Resources\trash.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\setting.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cross1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save-file1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\trash1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setting1.png" />
+    <None Include="Resources\iconologo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

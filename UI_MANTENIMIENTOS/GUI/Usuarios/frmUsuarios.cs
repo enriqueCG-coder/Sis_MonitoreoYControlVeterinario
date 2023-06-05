@@ -200,6 +200,7 @@ namespace UI_MANTENIMIENTOS.GUI.Usuarios
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            limpiar();
             panelUsuarios.Visible = false;
         }
 
@@ -214,36 +215,43 @@ namespace UI_MANTENIMIENTOS.GUI.Usuarios
             u.IDRol = cbRol.SelectedValue.ToString();
             u.IDUsuario = txtID.Text;
 
-            //validar que accion se va a realizar
-            if (txtID.TextLength > 0)
+            if (!string.IsNullOrEmpty(u.Clave))
             {
-                //actualizar
-                if (u.Actualizar())
+                //validar que accion se va a realizar
+                if (txtID.TextLength > 0)
                 {
-                    MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    panelUsuarios.Visible = false;
-                    cargarDatos();
-                    limpiar();
+                    //actualizar
+                    if (u.Actualizar())
+                    {
+                        MessageBox.Show("¡Registro actualizado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        panelUsuarios.Visible = false;
+                        cargarDatos();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("¡El registro no fue actualizado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //insertar
+                    if (u.Insertar())
+                    {
+                        MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargarDatos();
+                        limpiar();
+                        panelUsuarios.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             else
             {
-                //insertar
-                if (u.Insertar())
-                {
-                    MessageBox.Show("¡Registro insertado correctamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarDatos();
-                    limpiar();
-                    panelUsuarios.Visible = false;
-                }
-                else
-                {
-                    MessageBox.Show("¡El registro no fue insertado!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("complete el campo vacío", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
@@ -300,6 +308,6 @@ namespace UI_MANTENIMIENTOS.GUI.Usuarios
             }
         }
 
-        
+
     }
 }

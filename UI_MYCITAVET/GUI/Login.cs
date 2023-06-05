@@ -62,13 +62,14 @@ namespace UI_MYCITAVET.GUI
             //Imagen mostrar la mandamos al frente
             pbMostrar.BringToFront();
             //Ocultamos la contraseña
+            //txtPassword.PasswordChar = '🦴';
             txtPassword.PasswordChar = '☺';
         }
 
         //para cerrar el sistema
         private void btncerrar_Click(object sender, EventArgs e)
         {
-            
+            Environment.Exit(0);
         }
 
         //para minimizar la ventana 

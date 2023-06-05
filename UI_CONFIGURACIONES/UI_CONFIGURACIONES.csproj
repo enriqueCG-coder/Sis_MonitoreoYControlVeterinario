@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLS\Clasificaciones.cs" />
+    <Compile Include="CLS\Departamento.cs" />
+    <Compile Include="CLS\Municipios.cs" />
     <Compile Include="CLS\Opciones.cs" />
     <Compile Include="CLS\Permisos.cs" />
     <Compile Include="CLS\Roles.cs" />
@@ -52,6 +54,18 @@
     </Compile>
     <Compile Include="GUI\Clasificaciones\GestionClasificaciones.Designer.cs">
       <DependentUpon>GestionClasificaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Deptos_Municipios\frmDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Deptos_Municipios\frmDepartamentos.Designer.cs">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Deptos_Municipios\frmMunicipios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Deptos_Municipios\frmMunicipios.Designer.cs">
+      <DependentUpon>frmMunicipios.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Opciones\GestionOpciones.cs">
       <SubType>Form</SubType>
@@ -88,6 +102,12 @@
     <EmbeddedResource Include="GUI\Clasificaciones\GestionClasificaciones.resx">
       <DependentUpon>GestionClasificaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Deptos_Municipios\frmDepartamentos.resx">
+      <DependentUpon>frmDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Deptos_Municipios\frmMunicipios.resx">
+      <DependentUpon>frmMunicipios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Opciones\GestionOpciones.resx">
       <DependentUpon>GestionOpciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,25 +126,10 @@
     <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cancelar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minus.png" />
@@ -133,16 +138,10 @@
     <None Include="Resources\cross.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cross1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\save-file.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setting.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />

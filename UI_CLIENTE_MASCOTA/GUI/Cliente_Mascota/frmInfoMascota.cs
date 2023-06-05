@@ -175,5 +175,44 @@ namespace UI_CLIENTE_MASCOTA.GUI.Cliente_Mascota
             }
         }
 
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra, espacio en blanco o tilde
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Cancelar el evento para evitar que se ingrese el carácter no deseado
+                e.Handled = true;
+            }
+        }
+
+        private void txtPeso_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 3; // Máximo número de caracteres permitidos
+
+            if (txtPeso.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtPeso.Text = txtPeso.Text.Substring(0, maxLength);
+                txtPeso.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
+
+        private void txtDiagnostico_TextChanged(object sender, EventArgs e)
+        {
+            int maxLength = 100; // Máximo número de caracteres permitidos
+
+            if (txtDiagnostico.Text.Length > maxLength)
+            {
+                // Mostrar un mensaje de error
+                MessageBox.Show("Se ha excedido el límite máximo de caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Truncar el texto ingresado al límite máximo
+                txtDiagnostico.Text = txtDiagnostico.Text.Substring(0, maxLength);
+                txtDiagnostico.SelectionStart = maxLength; // Establecer el cursor al final del texto válido
+            }
+        }
     }
 }

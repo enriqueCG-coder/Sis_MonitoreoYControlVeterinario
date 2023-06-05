@@ -31,6 +31,9 @@ namespace UI_MYCITAVET.GUI
             totalCitas();
             totalUsuarios();
             totalClientes();
+            btnClasificaciones.Visible = false;
+            btnOpciones.Visible = false;
+            btnPermisos.Visible = false;
         }
 
         
@@ -368,6 +371,32 @@ namespace UI_MYCITAVET.GUI
         private void cronometro_Tick(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnDepartamentos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmDepartamentos f = new UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmDepartamentos();
+                f.ShowDialog();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btnMunicipios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmMunicipios f = new UI_CONFIGURACIONES.GUI.Deptos_Municipios.frmMunicipios();
+                f.ShowDialog();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -31,7 +31,15 @@ namespace UI_CONSULTORIA.GUI.AGENDA
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgendaCitas));
             this.panelCitasAgend = new System.Windows.Forms.Panel();
+            this.panelCita = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEmpezar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btncerrar = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.dgvCitasDelDia = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
@@ -39,32 +47,123 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnFinalizar = new System.Windows.Forms.Button();
-            this.barraSup = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAgregar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panelCitasAgend.SuspendLayout();
+            this.panelCita.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitasDelDia)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            this.barraSup.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCitasAgend
             // 
             this.panelCitasAgend.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCitasAgend.Controls.Add(this.panelCita);
             this.panelCitasAgend.Controls.Add(this.dgvCitasDelDia);
             this.panelCitasAgend.Controls.Add(this.statusStrip1);
             this.panelCitasAgend.Controls.Add(this.panelHeader);
-            this.panelCitasAgend.Location = new System.Drawing.Point(63, 99);
+            this.panelCitasAgend.Location = new System.Drawing.Point(12, 99);
             this.panelCitasAgend.Name = "panelCitasAgend";
-            this.panelCitasAgend.Size = new System.Drawing.Size(900, 398);
+            this.panelCitasAgend.Size = new System.Drawing.Size(1139, 398);
             this.panelCitasAgend.TabIndex = 31;
+            // 
+            // panelCita
+            // 
+            this.panelCita.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCita.Controls.Add(this.btnCancelar);
+            this.panelCita.Controls.Add(this.btnEmpezar);
+            this.panelCita.Controls.Add(this.panel1);
+            this.panelCita.Controls.Add(this.btnFinalizar);
+            this.panelCita.Location = new System.Drawing.Point(274, 79);
+            this.panelCita.Name = "panelCita";
+            this.panelCita.Size = new System.Drawing.Size(589, 196);
+            this.panelCita.TabIndex = 38;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.Location = new System.Drawing.Point(398, 98);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(168, 56);
+            this.btnCancelar.TabIndex = 38;
+            this.btnCancelar.Text = "Cancelar Cita";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnEmpezar
+            // 
+            this.btnEmpezar.BackColor = System.Drawing.Color.Green;
+            this.btnEmpezar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpezar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpezar.ForeColor = System.Drawing.Color.White;
+            this.btnEmpezar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpezar.Location = new System.Drawing.Point(18, 98);
+            this.btnEmpezar.Name = "btnEmpezar";
+            this.btnEmpezar.Size = new System.Drawing.Size(168, 56);
+            this.btnEmpezar.TabIndex = 37;
+            this.btnEmpezar.Text = "Procesar Cita";
+            this.btnEmpezar.UseVisualStyleBackColor = false;
+            this.btnEmpezar.Click += new System.EventHandler(this.btnEmpezar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.btncerrar);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(585, 65);
+            this.panel1.TabIndex = 21;
+            // 
+            // btncerrar
+            // 
+            this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btncerrar.Image = global::UI_CONSULTORIA.Properties.Resources.cross;
+            this.btncerrar.Location = new System.Drawing.Point(567, 3);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(15, 15);
+            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btncerrar.TabIndex = 24;
+            this.btncerrar.TabStop = false;
+            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(142, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 38);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cita Seleccionada";
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnFinalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFinalizar.Location = new System.Drawing.Point(208, 98);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(168, 56);
+            this.btnFinalizar.TabIndex = 36;
+            this.btnFinalizar.Text = "Finalizar cita";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // dgvCitasDelDia
             // 
@@ -87,7 +186,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCitasDelDia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCitasDelDia.ColumnHeadersHeight = 35;
+            this.dgvCitasDelDia.ColumnHeadersHeight = 45;
             this.dgvCitasDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -110,8 +209,9 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.dgvCitasDelDia.RowTemplate.Height = 40;
             this.dgvCitasDelDia.RowTemplate.ReadOnly = true;
             this.dgvCitasDelDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCitasDelDia.Size = new System.Drawing.Size(896, 314);
+            this.dgvCitasDelDia.Size = new System.Drawing.Size(1135, 314);
             this.dgvCitasDelDia.TabIndex = 20;
+            this.dgvCitasDelDia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCitasDelDia_CellContentDoubleClick);
             // 
             // statusStrip1
             // 
@@ -120,7 +220,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.lblRegistros});
             this.statusStrip1.Location = new System.Drawing.Point(0, 372);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(896, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1135, 22);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -139,7 +239,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(896, 58);
+            this.panelHeader.Size = new System.Drawing.Size(1135, 58);
             this.panelHeader.TabIndex = 0;
             // 
             // lblEmpleado
@@ -147,7 +247,7 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpleado.ForeColor = System.Drawing.Color.White;
-            this.lblEmpleado.Location = new System.Drawing.Point(317, 10);
+            this.lblEmpleado.Location = new System.Drawing.Point(418, 0);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(315, 38);
             this.lblEmpleado.TabIndex = 1;
@@ -157,127 +257,105 @@ namespace UI_CONSULTORIA.GUI.AGENDA
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(61, 53);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(20, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(255, 20);
+            this.label2.Size = new System.Drawing.Size(386, 20);
             this.label2.TabIndex = 34;
-            this.label2.Text = "Buscar cita por cliente o mascota";
+            this.label2.Text = "Buscar cita por correlativo o documento de cliente";
             // 
             // txtBuscar
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Location = new System.Drawing.Point(322, 53);
+            this.txtBuscar.Location = new System.Drawing.Point(23, 29);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(196, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(383, 20);
             this.txtBuscar.TabIndex = 35;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
-            // btnFinalizar
+            // label5
             // 
-            this.btnFinalizar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnFinalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFinalizar.Location = new System.Drawing.Point(529, 43);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(168, 34);
-            this.btnFinalizar.TabIndex = 36;
-            this.btnFinalizar.Text = "Finalizar cita";
-            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(493, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 20);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Filtrar por estado de cita:";
             // 
-            // barraSup
+            // cbEstado
             // 
-            this.barraSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
-            this.barraSup.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.barraSup.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.barraSup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator2,
-            this.btnEliminar,
-            this.toolStripSeparator1,
-            this.btnEditar,
-            this.toolStripSeparator3,
-            this.btnAgregar,
-            this.toolStripSeparator4});
-            this.barraSup.Location = new System.Drawing.Point(0, 0);
-            this.barraSup.Name = "barraSup";
-            this.barraSup.Size = new System.Drawing.Size(1050, 31);
-            this.barraSup.TabIndex = 37;
-            this.barraSup.Text = "toolStrip1";
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(497, 28);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(187, 21);
+            this.cbEstado.TabIndex = 37;
+            this.cbEstado.SelectedIndexChanged += new System.EventHandler(this.cbEstado_SelectedIndexChanged);
             // 
-            // toolStripSeparator2
+            // label3
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(779, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(184, 20);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Filtrar por fecha de cita:";
+            this.label3.Visible = false;
             // 
-            // btnEliminar
+            // dtpFecha
             // 
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Image = global::UI_CONSULTORIA.Properties.Resources.trash;
-            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
-            this.btnEliminar.Text = "Eliminar cita";
+            this.dtpFecha.Location = new System.Drawing.Point(783, 25);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 39;
+            this.dtpFecha.Visible = false;
+            this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged);
             // 
-            // toolStripSeparator1
+            // panel2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = global::UI_CONSULTORIA.Properties.Resources.edit;
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(89, 28);
-            this.btnEditar.Text = "Editar Cita";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = global::UI_CONSULTORIA.Properties.Resources.plus;
-            this.btnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(137, 28);
-            this.btnAgregar.Text = "Agendar nueva cita";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(17)))), ((int)(((byte)(90)))));
+            this.panel2.Controls.Add(this.dtpFecha);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtBuscar);
+            this.panel2.Controls.Add(this.cbEstado);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1163, 58);
+            this.panel2.TabIndex = 40;
             // 
             // AgendaCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 523);
-            this.Controls.Add(this.barraSup);
-            this.Controls.Add(this.btnFinalizar);
-            this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1163, 523);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelCitasAgend);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgendaCitas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agenda Citas";
+            this.Text = "Agenda de Citas";
             this.Load += new System.EventHandler(this.AgendaCitas_Load);
             this.panelCitasAgend.ResumeLayout(false);
             this.panelCitasAgend.PerformLayout();
+            this.panelCita.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitasDelDia)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            this.barraSup.ResumeLayout(false);
-            this.barraSup.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -289,16 +367,19 @@ namespace UI_CONSULTORIA.GUI.AGENDA
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.ToolStrip barraSup;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton btnEliminar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnEditar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton btnAgregar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel lblRegistros;
         public System.Windows.Forms.DataGridView dgvCitasDelDia;
+        private System.Windows.Forms.Panel panelCita;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEmpezar;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.PictureBox btncerrar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Panel panel2;
     }
 }
